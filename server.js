@@ -2,6 +2,7 @@
 projectData = {};
 
 // Require Express to run server and routes
+let express = require('express');
 
 // Start up an instance of app
 
