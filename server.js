@@ -24,3 +24,11 @@ const port = 8000;
 const server = app.listen(port, () => {
   console.log(`running on localhost: ${port}`);
 })
+
+// Initialize all route with a callback Function
+
+
+// callback function to complete GET /allowance
+
+
+// post Route
