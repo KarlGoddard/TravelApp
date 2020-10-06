@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/KarlGoddard/weatherapp/issues"
   },
-  "homepage": "https://github.com/KarlGoddard/weatherapp#readme"
+  "homepage": "https://github.com/KarlGoddard/weatherapp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
