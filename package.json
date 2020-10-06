@@ -1,0 +1,23 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "karls weather app",
+  "main": "server.js",
+  "scripts": {
+    "test": "hello",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarlGoddard/weatherapp.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "karl goddard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarlGoddard/weatherapp/issues"
+  },
+  "homepage": "https://github.com/KarlGoddard/weatherapp#readme"
+}
