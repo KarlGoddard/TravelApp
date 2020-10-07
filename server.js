@@ -23,12 +23,14 @@ app.use(express.static('website'));
 const port = 8000;
 const server = app.listen(port, () => {
   console.log(`running on localhost: ${port}`);
-})
+});
 
-// Initialize all route with a callback Function
-
-
-// callback function to complete GET /allowance
-
+// initialise all routes with a get request
+app.get('/all', function (req, res) {
+  console.log('Hello, this is a get request');
+});
 
 // post Route
+app.post('/all2', function (req, res) {
+  res.send('Hello, this is a post request');
+});
