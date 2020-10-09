@@ -1,23 +1,22 @@
 /* Global Variables */
 
 // Personal API Key for OpenWeatherMap API - check id in API docs
-const URL = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=';
+const URL1 = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+let Zip = document.getElementById('zip').value;
+const URL2 = ',us&appid=';
 const APIKey = 'edfb13aa9da3f0d921fa47628c27770b';
-const APIName = 'KarlWeatherApp'; //unsure if required
-const XXX = 'something to retrieve in API';
-// Event listener to add function to existing HTML DOM element
-document.getElementById('yyy').addEventListener('click', zzz);
 
+// Event listener to add function to existing HTML DOM element
+document.getElementById('generate').addEventListener('click', createApiCall);
 
 /* Function called by event listener */
 
-function zzz() {
-  getWeatherInfo(URL,APIKey,XXX)
+function createApiCall() {
+  let apicall = URL1 + Zip + URL2 + APIKey;
+  console.log(apicall);
 }
 
 /* Function to GET Web API Data*/
-
-
 
 const postData = async (url = '', data = {})=> {
   console.log(data);
