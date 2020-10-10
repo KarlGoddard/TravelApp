@@ -2,7 +2,7 @@
 
 // Personal API Key for OpenWeatherMap API - check id in API docs
 const URL1 = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-let Zip = document.getElementById('zip').value;
+let Zip = document.getElementById('zip').value; //22301 example
 const URL2 = ',us&appid=';
 const APIKey = 'edfb13aa9da3f0d921fa47628c27770b';
 
@@ -30,7 +30,7 @@ const getWeather = async (apicall)=> {
   }
 };
 
-//postData('/add', { answer: 41 });
+postData('/add', { city: weatherData.name });
 
 /* Function to POST data */
 

@@ -27,14 +27,23 @@ const server = app.listen(port, () => {
 
 // GET route that returns projectData object
 app.get('/', function (request, response) {
-    console.log('get request');
-    res.send(projectData);
+    response.send(projectData);
   });
 
 // post Route
-app.post('/add', function (request, response) {
-    projectData.push(request.body);
-  });
+app.post('/add', addCity);
+
+function addCity(request, response) {
+  newEntry = {
+    city: request.body.city,
+  };
+  projectData.push(newEntry);
+  console.log(ProjectData);
+}
+
+// app.post('/add', function (request, response) {
+//     projectData.push(request.body);
+//   });
 
 // app.post('/adda', function (request, response) {
 //     response.send(ProjecData);
