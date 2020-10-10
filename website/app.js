@@ -14,31 +14,23 @@ document.getElementById('generate').addEventListener('click', createApiCall);
 function createApiCall() {
   let apicall = URL1 + Zip + URL2 + APIKey;
   console.log(apicall);
+  getWeather(apicall);
 }
 
 /* Function to GET Web API Data*/
 
-const postData = async (url = '', data = {})=> {
-  console.log(data);
-  const response = await fetch(url, {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-
+const getWeather = async (apicall)=> {
+  const response = await fetch(apicall);
   try {
-    const newData = await response.json();
-    console.log(newData);
-    return newData;
+    const weatherData = await response.json();
+    console.log(weatherData);
+    return weatherData;
   }catch (error) {
     console.log('error', error);
   }
 };
 
-postData('/add', { answer: 41 });
+//postData('/add', { answer: 41 });
 
 /* Function to POST data */
 
