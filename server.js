@@ -1,5 +1,5 @@
 // empty JS object to act as endpoint for all routes
-const projectData = {};
+const projectData = [];
 
 // Require Express to run server and routes
 const express = require('express');
@@ -25,8 +25,12 @@ const server = app.listen(port, () => {
   console.log(`running on localhost: ${port}`);
 });
 
-// GET route that returns projectData object
-app.get('/', function (request, response) {
+//GET route that returns projectData object
+app.get('/all', function (request, response) {
+    // let newEntry = {
+    //   city: 'apple',
+    // };
+    // projectData.push(newEntry); this works!
     response.send(projectData);
   });
 
@@ -34,11 +38,13 @@ app.get('/', function (request, response) {
 app.post('/add', addCity);
 
 function addCity(request, response) {
-  newEntry = {
-    city: request.body.city,
+  let newObj = request.body;
+  let newEntry = {
+    city: 'Manchester',
   };
   projectData.push(newEntry);
   console.log(ProjectData);
+  res.send(ProjectData);
 }
 
 // app.post('/add', function (request, response) {

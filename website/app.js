@@ -14,7 +14,11 @@ document.getElementById('generate').addEventListener('click', createApiCall);
 function createApiCall() {
   let apicall = URL1 + Zip + URL2 + APIKey;
   console.log(apicall);
-  getWeather(apicall);
+  getWeather(apicall)
+  .then(function (data) {
+    console.log(data);
+    postData('/add', { zzz: data[coord] });
+  });
 }
 
 /* Function to GET Web API Data*/
@@ -22,17 +26,33 @@ function createApiCall() {
 const getWeather = async (apicall)=> {
   const response = await fetch(apicall);
   try {
-    const weatherData = await response.json();
-    console.log(weatherData);
-    return weatherData;
+    const data = await response.json();
+    return data;
   }catch (error) {
     console.log('error', error);
   }
 };
 
-postData('/add', { city: weatherData.name });
-
 /* Function to POST data */
+
+const postData = async (url = '', data = {})=> {
+  const response = await fetch(url, {
+    method: 'POST',
+    dataType: 'JSON',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  try {
+    const newData = await response.json();
+    console.log(newData);
+    return newData;
+  }catch (error) {
+    console.log('error', error);
+  }
+};
 
 /* Function to GET Project Data */
 
