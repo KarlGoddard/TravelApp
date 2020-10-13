@@ -38,19 +38,10 @@ app.get('/all', function (request, response) {
 app.post('/add', addCity);
 
 function addCity(request, response) {
-  let newObj = request.body;
   let newEntry = {
-    city: 'Manchester',
+    city: request.body.zzz,
   };
   projectData.push(newEntry);
   console.log(ProjectData);
-  res.send(ProjectData);
+  response.send(ProjectData);
 }
-
-// app.post('/add', function (request, response) {
-//     projectData.push(request.body);
-//   });
-
-// app.post('/adda', function (request, response) {
-//     response.send(ProjecData);
-//   });
