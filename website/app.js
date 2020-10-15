@@ -24,11 +24,15 @@ function create() {
   getWeather(apicall)
   .then(function (data) {
       console.log(data);
-      postData('/add', {
-        newDT: newDT,
-        location: data[name],
-        temp: data[main.temp],
-      });
+      if (Number(data.cod)) {
+        alert(data[message]);
+      } else {
+        postData('/add', {
+          newDT: newDT,
+          location: data[name],
+          temp: data[main.temp],
+        }).then(console.log('hello'));
+      };
     });
 }
 
