@@ -27,10 +27,6 @@ const server = app.listen(port, () => {
 
 //GET route that returns projectData object
 app.get('/all', function (request, response) {
-    // let newEntry = {
-    //   city: 'apple',
-    // };
-    // projectData.push(newEntry); this works!
     response.send(projectData);
   });
 
@@ -38,10 +34,11 @@ app.get('/all', function (request, response) {
 app.post('/add', addCity);
 
 function addCity(request, response) {
-  let newEntry = {
-    city: request.body.zzz,
+  let newEntry1 = {
+    datetime: request.body.newDT,
+    location: request.body.location,
+    temperature: request.body.temp,
   };
-  projectData.push(newEntry);
-  console.log(ProjectData);
+  projectData.push(newEntry1);
   response.send(ProjectData);
 }

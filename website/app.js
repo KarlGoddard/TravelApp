@@ -1,24 +1,35 @@
 /* Global Variables */
 
+// Create a new date instance dynamically with JS
+let d = new Date();
+let newD = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+let newT = d.getHours() + ':' + d.getMinutes();
+let newDT = newD + ' ' + newT;
+
 // Personal API Key for OpenWeatherMap API - check id in API docs
 const URL1 = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-let Zip = document.getElementById('zip').value; //22301 example
 const URL2 = ',us&appid=';
 const APIKey = 'edfb13aa9da3f0d921fa47628c27770b';
 
 // Event listener to add function to existing HTML DOM element
-document.getElementById('generate').addEventListener('click', createApiCall);
+document.getElementById('generate').addEventListener('click', create);
 
 /* Function called by event listener */
 
-function createApiCall() {
+function create() {
+  let userfeelings = document.getElementById('feelings').value;
+  let Zip = document.getElementById('zip').value; //22301 example
   let apicall = URL1 + Zip + URL2 + APIKey;
   console.log(apicall);
   getWeather(apicall)
   .then(function (data) {
-    console.log(data);
-    postData('/add', { zzz: data[coord] });
-  });
+      console.log(data);
+      postData('/add', {
+        newDT: newDT,
+        location: data[name],
+        temp: data[main.temp],
+      });
+    });
 }
 
 /* Function to GET Web API Data*/
@@ -47,7 +58,7 @@ const postData = async (url = '', data = {})=> {
   });
   try {
     const newData = await response.json();
-    console.log(newData);
+    //console.log(data);
     return newData;
   }catch (error) {
     console.log('error', error);
@@ -56,6 +67,21 @@ const postData = async (url = '', data = {})=> {
 
 /* Function to GET Project Data */
 
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+// const getData = async (url = '', data = {})=> {
+//   const response = await fetch(url, {
+//     method: 'GET',
+//     dataType: 'JSON',
+//     credentials: 'same-origin',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   });
+//   try {
+//     const newData = await response.json();
+//     console.log(newData);
+//     return newData;
+//   }catch (error) {
+//     console.log('error', error);
+//   }
+// };
