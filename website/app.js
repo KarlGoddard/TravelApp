@@ -24,17 +24,22 @@ function create() {
   getWeather(apicall)
   .then(function (data) {
       console.log(data);
-      if (Number(data.cod)) {
+      if (Number(data.cod)) {//not working
         alert(data[message]);
       } else {
         postData('/add', {
-          newDT: newDT,
-          location: data[name],
+          // newDT: newDT,
+          // location: data[name.city],
           temp: data[main.temp],
-        }).then(console.log('hello'));
+        });
       };
     });
 }
+
+// .then(function (data) {
+//   console.log('this works');
+//   getData('/all');
+// });
 
 /* Function to GET Web API Data*/
 
@@ -62,7 +67,6 @@ const postData = async (url = '', data = {})=> {
   });
   try {
     const newData = await response.json();
-    //console.log(data);
     return newData;
   }catch (error) {
     console.log('error', error);
@@ -71,21 +75,13 @@ const postData = async (url = '', data = {})=> {
 
 /* Function to GET Project Data */
 
-// const getData = async (url = '', data = {})=> {
-//   const response = await fetch(url, {
-//     method: 'GET',
-//     dataType: 'JSON',
-//     credentials: 'same-origin',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-//   });
-//   try {
-//     const newData = await response.json();
-//     console.log(newData);
-//     return newData;
-//   }catch (error) {
-//     console.log('error', error);
-//   }
-// };
+const getData = async (url = '')=> {
+  const response = await fetch(url);
+  try {
+    const returnData = await response.json();
+    console.log(returnData);
+    return returnData;
+  }catch (error) {
+    console.log('error', error);
+  }
+};
