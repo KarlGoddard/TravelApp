@@ -42,5 +42,5 @@ function addInfo(request, response) {
     temp: request.body.temp,
     feelings: request.body.feelings,
   };
-  projectData.push(newEntry);
+  projectData = newEntry;
 }

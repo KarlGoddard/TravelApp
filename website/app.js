@@ -37,8 +37,6 @@ function create() {
     }).then(getData('/all'));
 }
 
-//
-
 /* Function to GET Web API Data*/
 
 const getWeather = async (apicall)=> {
@@ -76,13 +74,11 @@ const postData = async (url = "", data = {})=> {
 const getData = async (url = "")=> {
   const response = await fetch(url);
   try {
-    let i = 0;
     let returnData = await response.json();
-    document.getElementById("zipcode").innerHTML = 'ZipCode: ' + returnData[i].zip;
-    document.getElementById("city").innerHTML = 'City Name: ' + returnData[i].city;
-    document.getElementById("date").innerHTML = 'Date: ' + returnData[i].date;
-    document.getElementById("temp").innerHTML = 'Temperature: ' + returnData[i].temp;
-    document.getElementById("feelings").innerHTML = 'Your feelings were: ' + returnData[i].feelings;
+    document.getElementById("location").innerHTML = 'ZIP Code: ' + returnData.zip + '   CITY Name: ' + returnData.city;
+    document.getElementById("date").innerHTML = 'Date: ' + returnData.date;
+    document.getElementById("temp").innerHTML = 'Temperature: ' + returnData.temp;
+    document.getElementById("userfeelings").innerHTML = 'Your feelings were: ' + returnData.feelings;
   }catch (error) {
     console.log("error", error);
   }
