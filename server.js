@@ -34,10 +34,13 @@ app.get('/all', function (request, response) {
 app.post('/add', addInfo);
 
 function addInfo(request, response) {
-  console.log(request.body.location);
+  console.log(request.body);
     let newEntry = {
+    zip: request.body.zip,
     city: request.body.location,
-    temp: request.body.temp
+    date: request.body.date,
+    temp: request.body.temp,
+    feelings: request.body.feelings,
   };
   projectData.push(newEntry);
 }

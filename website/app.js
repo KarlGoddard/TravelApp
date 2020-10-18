@@ -3,8 +3,6 @@
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newD = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
-let newT = d.getHours() + ":" + d.getMinutes();
-let newDT = newD + " " + newT;
 
 // Personal API Key for OpenWeatherMap API - check id in API docs
 const URL1 = "http://api.openweathermap.org/data/2.5/weather?zip=";
@@ -29,8 +27,11 @@ function create() {
         alert(data.message);
       } else {
         postData('/add', {
+          zip: Zip,
           location: data.name,
-          temp: data.main.temp
+          date: newD,
+          temp: data.main.temp,
+          feelings: userfeelings,
         });
       }
     }).then(getData('/all'));
@@ -75,10 +76,13 @@ const postData = async (url = "", data = {})=> {
 const getData = async (url = "")=> {
   const response = await fetch(url);
   try {
+    let i = 0;
     let returnData = await response.json();
-    document.getElementById("date").innerHTML = 'City Name: ' + returnData[0].city;
-    //document.getElementById("temp").innerHTML = 'Date/Time: ' + returnData.newDT;
-    //document.getElementById("content").innerHTML = 'Temperature: ' + returnData.temp;
+    document.getElementById("zipcode").innerHTML = 'ZipCode: ' + returnData[i].zip;
+    document.getElementById("city").innerHTML = 'City Name: ' + returnData[i].city;
+    document.getElementById("date").innerHTML = 'Date: ' + returnData[i].date;
+    document.getElementById("temp").innerHTML = 'Temperature: ' + returnData[i].temp;
+    document.getElementById("feelings").innerHTML = 'Your feelings were: ' + returnData[i].feelings;
   }catch (error) {
     console.log("error", error);
   }
