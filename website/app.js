@@ -78,7 +78,7 @@ const getData = async (url = "")=> {
     document.getElementById("location").innerHTML = 'ZIP Code: ' + returnData.zip + '   CITY Name: ' + returnData.city;
     document.getElementById("date").innerHTML = 'Date: ' + returnData.date;
     document.getElementById("temp").innerHTML = 'Temperature: ' + returnData.temp;
-    document.getElementById("userfeelings").innerHTML = 'Your feelings were: ' + returnData.feelings;
+    document.getElementById("content").innerHTML = 'Your feelings were: ' + returnData.feelings;
   }catch (error) {
     console.log("error", error);
   }
