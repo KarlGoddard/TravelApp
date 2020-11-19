@@ -27,9 +27,7 @@ app.listen(8082, function () {
 })
 
 app.get('/', function (req, res) {
-       console.log('hello');
-//     res.sendFile('dist/index.html')
-//     //res.sendFile(path.resolve('src/client/views/index.html'))
+    res.sendFile('dist/index.html')
 })
 
 // post Route A
