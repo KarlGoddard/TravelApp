@@ -6,7 +6,7 @@ let newD = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
 
 // Event listener to add function to existing HTML DOM element
 
-document.getElementById("generate").addEventListener("click", create);
+// document.getElementById("generate").addEventListener("click", create);
 
 /* Function to GET Web API Data*/
 

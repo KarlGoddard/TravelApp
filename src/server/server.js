@@ -5,11 +5,11 @@
 
 // const fetch = require("node-fetch");
 
-// var path = require('path')
+var path = require('path')
 const express = require('express')
 
 const app = express()
-app.use(express.static('src/client/views/index.html'))
+app.use(express.static('client'))
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
@@ -22,14 +22,15 @@ app.use(cors())
 // console.log(`Your API key is ${process.env.API_KEY}`)
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081')
+app.listen(8082, function () {
+    console.log('Example app listening on port 8082')
 })
 
-// app.get('/', function (req, res) {
+app.get('/', function (req, res) {
+       console.log('hello');
 //     res.sendFile('dist/index.html')
 //     //res.sendFile(path.resolve('src/client/views/index.html'))
-// })
+})
 
 // post Route A
 // app.post('/analysis', getInfo)
