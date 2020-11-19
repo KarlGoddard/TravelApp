@@ -1,36 +1,53 @@
 // empty JS object to act as endpoint for all routes
-let projectData = [];
+// const dotenv = require('dotenv')
+// dotenv.config()
+// const apikey = process.env.API_KEY
 
-// Require Express to run server and routes
-const express = require('express');
+// const fetch = require("node-fetch");
 
-// Start up an instance of app
-const app = express();
+// var path = require('path')
+const express = require('express')
 
-/* Middleware*/
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+const app = express()
+app.use(express.static('dist'))
 
-// Cors for cross origin allowance
-const cors = require('cors');
-app.use(cors());
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.text())//.json()
 
-// Initialize the main project folder
-app.use(express.static('website'));
+const cors = require('cors')
+app.use(cors())
 
-// Setup Server
-const port = 8000;
-const server = app.listen(port, () => {
-  console.log(`running on localhost: ${port}`);
-});
+// console.log(__dirname)
+// console.log(`Your API key is ${process.env.API_KEY}`)
 
-//GET route that returns projectData object
-app.get('/all', function (request, response) {
-    response.send(projectData);
-  });
+// designates what port the app will listen to for incoming requests
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081')
+})
 
-// post Route
+app.get('/', function (req, res) {
+    res.sendFile('dist/index.html')
+    //res.sendFile(path.resolve('src/client/views/index.html'))
+})
+
+// post Route A
+app.post('/analysis', getInfo)
+
+async function getInfo(req, res) {
+  let apicall = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${apikey}&lang=en&url=${req.body}`);
+  if (apicall.ok) {
+    let data = await apicall.json();
+    res.send(data);
+    console.log('request is ' + req.body);
+    console.log(data);
+    console.log(apicall);
+  } else {
+    console.log('error is ', error);
+  }
+}
+
+// post Route B
 app.post('/add', addInfo);
 
 function addInfo(request, response) {

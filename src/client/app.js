@@ -4,38 +4,9 @@
 let d = new Date();
 let newD = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
 
-// Personal API Key for OpenWeatherMap API - check id in API docs
-const URL1 = "http://api.openweathermap.org/data/2.5/weather?zip=";
-const URL2 = ",us&appid=";
-const APIKey = "edfb13aa9da3f0d921fa47628c27770b";
-
 // Event listener to add function to existing HTML DOM element
 
 document.getElementById("generate").addEventListener("click", create);
-
-/* Function called by event listener */
-
-function create() {
-  let userfeelings = document.getElementById("feelings").value;
-  let Zip = document.getElementById("zip").value; //22301 example
-  let apicall = URL1 + Zip + URL2 + APIKey;
-
-  getWeather(apicall)
-    .then((data)=> {
-      console.log(data);
-      if (String(data.cod) === '404' || String(data.cod) === '400') {
-        alert(data.message);
-      } else {
-        postData('/add', {
-          zip: Zip,
-          location: data.name,
-          date: newD,
-          temp: data.main.temp,
-          feelings: userfeelings,
-        });
-      }
-    }).then(getData('/all'));
-}
 
 /* Function to GET Web API Data*/
 
