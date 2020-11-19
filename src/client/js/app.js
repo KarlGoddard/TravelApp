@@ -1,8 +1,8 @@
 /* Global Variables */
 
 // Create a new date instance dynamically with JS
-let d = new Date();
-let newD = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
+// let d = new Date();
+// let newD = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
 
 // Event listener to add function to existing HTML DOM element
 
