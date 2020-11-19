@@ -1,28 +1,19 @@
 {
-  "name": "weatherapp",
+  "name": "travelapp",
   "version": "1.0.0",
-  "description": "karls weather app",
-  "main": "server.js",
+  "description": "Udacity Capstone Project",
+  "main": "index.js",
   "scripts": {
-    "test": "hello",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KarlGoddard/weatherapp.git"
+    "url": "git+https://github.com/KarlGoddard/TravelApp.git"
   },
-  "keywords": [
-    "none"
-  ],
-  "author": "karl goddard",
+  "author": "Karl Goddard",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KarlGoddard/weatherapp/issues"
+    "url": "https://github.com/KarlGoddard/TravelApp/issues"
   },
-  "homepage": "https://github.com/KarlGoddard/weatherapp#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/KarlGoddard/TravelApp#readme"
 }
