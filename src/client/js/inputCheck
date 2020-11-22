@@ -1,0 +1,3 @@
+function inputChecker(country) {
+  return true;
+}
