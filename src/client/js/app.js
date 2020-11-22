@@ -6,7 +6,7 @@
 
 //Event listener to add function to existing HTML DOM element
 
-document.getElementById("myInput").addEventListener("click", create);
+document.getElementById("myInput").addEventListener("click", postData);
 
 /* Function to GET Web API Data*/
 

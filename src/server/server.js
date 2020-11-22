@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 app.post('/geo', country)
 
 async function country(req, res) {
-  let apicall = await fetch(`https://api.geonames.org/country=${req.body}`);
+  let apicall = await fetch(`https://api.geonames.org/countryInfo?country=${req.body}`);
   if (apicall.ok) {
     let data = await apicall.json();
     res.send(data);

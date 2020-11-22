@@ -2,34 +2,75 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Weather Journal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel App</title>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
  <body>
-<div id ="app">
-  <div class ="holder headline">
-    Weather Journal App
-  </div>
-  <div class ="holder zip">
-    <label for="zip">Enter Zipcode here</label>
-    <input type="text" id="zip" placeholder="enter zip code here">
-  </div>
-  <div class ="holder feel">
-    <label for="countryName">Country</label>
-    <textarea class="myInput" id="CountryEntry" placeholder="Enter your country here"></textarea>
-    <button id="countrySubmit" type="submit"> Generate </button>
-  </div>
-  <div class ="holder entry">
-    <div class = "title">Most Recent Entry</div>
-   <div id="entryHolder">
-    <div id="location"></div>
-    <div id="date"></div>
-    <div id="temp"></div>
-    <div id="content"></div>
-  </div>
-  </div>
-  </div>
+<div class ="container">
+
+  <header>
+      <div class="header">
+        TRAVEL APP
+      </div>
+  </header>
+
+  <section>
+      <div class ="desc">
+          <div class="descpic">
+              <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
+              <input type="text" id="zip" placeholder="enter zip code here">
+          </div>
+          <div class="caption">
+              <blockquote>
+                  <p><em>15 Sep 20</em> : new moon spotted over Neptune.</p>
+                  <p><a href="https://www.freepik.com/photos/sky">Sky photo created by kjpargeter - www.freepik.com</a></p>
+              </blockquote>
+          </div>
+      </div>
+  </section>
+
+  <section>
+      <div class ="holder feel">
+        <label for="countryName">Country</label>
+        <textarea class="myInput" id="CountryEntry" placeholder="Enter your country here"></textarea>
+        <button id="countrySubmit" type="submit"> Generate </button>
+      </div>
+  </section>
+
+  <section>
+      <div class ="holder entry">
+           <div class = "title">Most Recent Entry</div>
+           <div id="entryHolder">
+            <div id="location"></div>
+            <div id="date"></div>
+            <div id="temp"></div>
+            <div id="content"></div>
+          </div>
+      </div>
+  </section>
+
+  <section>
+      <div class ="holder entry">
+           <div class = "title">Most Recent Entry</div>
+           <div id="entryHolder">
+            <div id="location"></div>
+            <div id="date"></div>
+            <div id="temp"></div>
+            <div id="content"></div>
+          </div>
+      </div>
+  </section>
+
+  <footer>
+      <div class="footer">
+        FOOTER HERE
+      </div>
+  </footer>
+
+
+</div>
 <script type="text/javascript" src="../../../dist/main.js"></script>
 </body>
 </html>
