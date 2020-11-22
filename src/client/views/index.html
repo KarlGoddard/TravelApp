@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Travel App</title>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../styles/style.css">
 </head>
  <body>
 <div class ="container">
@@ -17,7 +17,7 @@
   </header>
 
   <section>
-      <div class ="desc">
+      <div class ="main desc">
           <div class="descpic">
               <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
           </div>
@@ -30,30 +30,33 @@
       </div>
   </section>
 
-  <form class="" onsubmit="return Client.handleSubmit(event)">
-      <p>input your country here:</p>
-      <input id="urlinput" type="text" name="input" value="" placeholder="http://">
-      <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-  </form>
-  <div id="outcome"></div>
-</section>
-
-<section>
-    <div class ="desc">
-        <div class="descpic">
-            <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
-        </div>
-        <div class="caption">
-            <blockquote>
-                <p><em>15 Sep 20</em> : new moon spotted over Neptune.</p>
-                <p><a href="https://www.freepik.com/photos/sky">Sky photo created by kjpargeter - www.freepik.com</a></p>
-            </blockquote>
-        </div>
-    </div>
-</section>
+  <section>
+      <div class ="main input">
+          <form class="" onsubmit="return Client.handleSubmit(event)">
+              <p>input your country here:</p>
+              <input id="urlinput" type="text" name="input" value="" placeholder="http://">
+              <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+          </form>
+      </div>
+      <div id="outcome"></div>
+  </section>
 
   <section>
-      <div class ="holder entry">
+      <div class ="main place">
+          <div class="descpic">
+              <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
+          </div>
+          <div class="caption">
+              <blockquote>
+                  <p><em>15 Sep 20</em> : new moon spotted over Neptune.</p>
+                  <p><a href="https://www.freepik.com/photos/sky">Sky photo created by kjpargeter - www.freepik.com</a></p>
+              </blockquote>
+          </div>
+      </div>
+  </section>
+
+  <section>
+      <div class ="main weather">
            <div class = "title">Most Recent Entry</div>
            <div id="entryHolder">
             <div id="aaa"></div>
