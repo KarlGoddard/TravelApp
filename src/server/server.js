@@ -30,21 +30,21 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-// post Route A
-// app.post('/analysis', getInfo)
-//
-// async function getInfo(req, res) {
-//   let apicall = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${apikey}&lang=en&url=${req.body}`);
-//   if (apicall.ok) {
-//     let data = await apicall.json();
-//     res.send(data);
-//     console.log('request is ' + req.body);
-//     console.log(data);
-//     console.log(apicall);
-//   } else {
-//     console.log('error is ', error);
-//   }
-// }
+//get Geo
+app.post('/geo', country)
+
+async function country(req, res) {
+  let apicall = await fetch(`https://api.geonames.org/country=${req.body}`);
+  if (apicall.ok) {
+    let data = await apicall.json();
+    res.send(data);
+    console.log('request is ' + req.body);
+    console.log(data);
+    console.log(apicall);
+  } else {
+    console.log('error is ', error);
+  }
+}
 //
 // // post Route B
 // app.post('/add', addInfo);

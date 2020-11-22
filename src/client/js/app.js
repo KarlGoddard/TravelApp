@@ -4,9 +4,9 @@
 // let d = new Date();
 // let newD = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
 
-// Event listener to add function to existing HTML DOM element
+//Event listener to add function to existing HTML DOM element
 
-// document.getElementById("generate").addEventListener("click", create);
+document.getElementById("myInput").addEventListener("click", create);
 
 /* Function to GET Web API Data*/
 
@@ -22,23 +22,23 @@
 
 /* Function to POST data */
 
-// const postData = async (url = "", data = {})=> {
-//   const response = await fetch(url, {
-//     method: "POST",
-//     dataType: "TEXT",
-//     credentials: "same-origin",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(data),
-//   });
-//   try {
-//     const newData = await response.json();
-//     return newData;
-//   }catch (error) {
-//     console.log("error", error);
-//   }
-// };
+const postData = async (url = "", data = {})=> {
+  const response = await fetch(url, {
+    method: "POST",
+    dataType: "TEXT",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: data,
+  });
+  try {
+    const newData = await response.json();
+    return newData;
+  }catch (error) {
+    console.log("error", error);
+  }
+};
 
 /* Function to GET Project Data */
 
