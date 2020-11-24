@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel App</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel App</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
 </head>
- <body>
-<div class ="container">
 
-  <header>
-      <div class="hd">
-        TRAVEL APP
-      </div>
-  </header>
+<body>
+    <div class="container">
 
-  <section>
-      <div class ="main desc">
-          <div class="descpic">
-              <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
+      <header>
+          <div class="hd">
+            TRAVEL APP
           </div>
-          <div class="caption">
-              <blockquote>
-                  <p><em>15 Sep 20</em> : new moon spotted over Neptune.</p>
-                  <p><a href="https://www.freepik.com/photos/sky">Sky photo created by kjpargeter - www.freepik.com</a></p>
-              </blockquote>
+      </header>
+
+      <div class="grid-container">
+          <section>
+              <div class="desc">
+                  <div class="pic">
+                      <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
+                  </div>
+                  <div class="caption">
+                      <blockquote>
+                          <p><em>15 Sep 20</em> : new moon spotted over Neptune.</p>
+                          <p><a href="https://www.freepik.com/photos/sky">Sky photo created by kjpargeter - www.freepik.com</a></p>
+                      </blockquote>
+                  </div>
+              </div>
+          </section>
+
+          <section>
+              <div class="input">
+                  <form class="" onsubmit="return Client.handleSubmit(event)">
+                      <p>input your country here:</p>
+                      <input id="urlinput" type="text" name="input" value="" placeholder="http://">
+                      <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                  </form>
+              </div>
+              <div class="main" id="outcome"></div>
+          </section>
+
+          <section>
+              <div class="place">
+                  <div class="pic">
+                      <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
+                  </div>
+                  <div class="caption">
+                      <blockquote>
+                          <p><em>15 Sep 20</em> : new moon spotted over Neptune.</p>
+                          <p><a href="https://www.freepik.com/photos/sky">Sky photo created by kjpargeter - www.freepik.com</a></p>
+                      </blockquote>
+                  </div>
+              </div>
+          </section>
+
+          <section>
+              <div class="weather">
+                   <div class = "title">Most Recent Entry</div>
+                   <div id="entryHolder">
+                    <div id="aaa"></div>
+                    <div id="bbb"></div>
+                    <div id="ccc"></div>
+                    <div id="ddd"></div>
+                  </div>
+              </div>
+          </section>
+      </div>
+
+      <footer>
+          <div class="ft">
+            FOOTER HERE
           </div>
-      </div>
-  </section>
+      </footer>
 
-  <section>
-      <div class ="main input">
-          <form class="" onsubmit="return Client.handleSubmit(event)">
-              <p>input your country here:</p>
-              <input id="urlinput" type="text" name="input" value="" placeholder="http://">
-              <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-          </form>
-      </div>
-      <div id="outcome"></div>
-  </section>
-
-  <section>
-      <div class ="main place">
-          <div class="descpic">
-              <a href="#"><img src="https://image.freepik.com/free-photo/moon_1048-2672.jpg" alt="new Neptune moon" /></a>
-          </div>
-          <div class="caption">
-              <blockquote>
-                  <p><em>15 Sep 20</em> : new moon spotted over Neptune.</p>
-                  <p><a href="https://www.freepik.com/photos/sky">Sky photo created by kjpargeter - www.freepik.com</a></p>
-              </blockquote>
-          </div>
-      </div>
-  </section>
-
-  <section>
-      <div class ="main weather">
-           <div class = "title">Most Recent Entry</div>
-           <div id="entryHolder">
-            <div id="aaa"></div>
-            <div id="bbb"></div>
-            <div id="ccc"></div>
-            <div id="ddd"></div>
-          </div>
-      </div>
-  </section>
-
-  <footer>
-      <div class="ft">
-        FOOTER HERE
-      </div>
-  </footer>
-
-
-</div>
-<script type="text/javascript" src="../../../dist/main.js"></script>
+    </div>
+    <script type="text/javascript" src="../../../dist/main.js"></script>
 </body>
 </html>
