@@ -3,7 +3,7 @@
 // dotenv.config()
 // const apikey = process.env.API_KEY
 
-// const fetch = require("node-fetch");
+const fetch = require("node-fetch");
 
 var path = require('path')
 const express = require('express')
@@ -13,7 +13,7 @@ app.use(express.static('dist'))
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.text())//.json()
+app.use(bodyParser.text())
 
 const cors = require('cors')
 app.use(cors())
@@ -23,7 +23,7 @@ app.use(cors())
 
 // designates what port the app will listen to for incoming requests
 app.listen(8082, function () {
-    console.log('Example app listening on port 8082')
+    console.log('App listening on port 8082')
 })
 
 app.get('/', function (req, res) {
@@ -34,8 +34,8 @@ app.get('/', function (req, res) {
 app.post('/geo', country)
 
 async function country(req, res) {
-  let apicall = await fetch(`https://api.geonames.org/countryInfo?country=${req.body}`);
-  if (apicall.ok) {
+  let apicall = await fetch('http://api.geonames.org/searchJSON?name_equals=Spain&username=karlgoddard');
+  if (apicall.status === 200) {
     let data = await apicall.json();
     res.send(data);
     console.log('request is ' + req.body);
