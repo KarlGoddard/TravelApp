@@ -3,11 +3,11 @@ function handleSubmit(event) {
   event.preventDefault();
 
   // check what text was put into the form field
-  let countryName = document.getElementById("inputCountry").value;
+  let cityName = document.getElementById("inputCity").value;
 
-  console.log(countryName);
+  console.log(city);
 
-  if (Client.inputChecker(countryName)) {
+  if (Client.inputChecker(cityName)) {
   console.log('input check OK');
   //document.getElementById('outcome').innerHTML = 'Valid url.  Please wait while we retrieve the analysis';
 
@@ -17,19 +17,19 @@ function handleSubmit(event) {
       headers: {
       'Content-Type': 'text/plain'
       },
-      body: countryName
+      body: cityName
       })
       .then((res) => res.json())
       .then(function(res) {
           //document.getElementById('bbb').innerHTML = res;
           //const ScoreVal = ScoreText(res.score_tag);
-          //document.getElementById('score').innerHTML = ScoreVal;
+          let place = res.geonames[0].countryName;
           document.getElementById('bbb').innerHTML = res.geonames[0].countryName;
           //document.getElementById('ccc').innerHTML = res[totalResultsCount];
           //document.getElementById('ddd').innerHTML = res.geonamescountryName[0];
           // document.getElementById('irony').innerHTML = res.irony;
           // document.getElementById('outcome').innerHTML = 'Analysis Complete';
-          // return true;
+          // return (place, lat, long etc);
         })
         .catch((error) =>{
           console.log(error);

@@ -31,9 +31,9 @@ app.get('/', function (req, res) {
 })
 
 //get Geo
-app.post('/geo', country)
+app.post('/geo', city)
 
-async function country(req, res) {
+async function city(req, res) {
   let apicall = await fetch(`http://api.geonames.org/searchJSON?name_equals=${req.body}&username=karlgoddard`);
   if (apicall.status === 200) {
     let data = await apicall.json();
