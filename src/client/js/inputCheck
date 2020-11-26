@@ -1,4 +1,4 @@
-function inputChecker(country) {
+function inputChecker(city) {
   return true;
 }
 

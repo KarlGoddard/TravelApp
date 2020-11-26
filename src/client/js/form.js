@@ -5,7 +5,7 @@ function handleSubmit(event) {
   // check what text was put into the form field
   let cityName = document.getElementById("inputCity").value;
 
-  console.log(city);
+  console.log(cityName);
 
   if (Client.inputChecker(cityName)) {
   console.log('input check OK');
