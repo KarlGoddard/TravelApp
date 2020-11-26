@@ -15,17 +15,18 @@ function handleSubmit(event) {
       method: "POST",
       credentials: 'same-origin',
       headers: {
-      'Content-Type': 'text/html'
+      'Content-Type': 'text/plain'
       },
       body: countryName
       })
       .then((res) => res.json())
       .then(function(res) {
+          //document.getElementById('bbb').innerHTML = res;
           //const ScoreVal = ScoreText(res.score_tag);
           //document.getElementById('score').innerHTML = ScoreVal;
-          document.getElementById('aaa').innerHTML = 'it worked';//res.capital;
-          // document.getElementById('subjectivity').innerHTML = res.subjectivity;
-          // document.getElementById('confidence').innerHTML = res.confidence;
+          document.getElementById('bbb').innerHTML = res.geonames[0].countryName;
+          //document.getElementById('ccc').innerHTML = res[totalResultsCount];
+          //document.getElementById('ddd').innerHTML = res.geonamescountryName[0];
           // document.getElementById('irony').innerHTML = res.irony;
           // document.getElementById('outcome').innerHTML = 'Analysis Complete';
           // return true;
