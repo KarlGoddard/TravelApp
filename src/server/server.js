@@ -1,6 +1,14 @@
 const dotenv = require('dotenv')
 dotenv.config()
+
 const geoAPIKey = process.env.Geo_API_KEY
+const weatherAPIKey = process.env.Weather_API_KEY
+const pixAPIKey = process.env.Pix_API_KEY
+
+const geoURL = 'http://api.geonames.org/searchJSON?'
+const weatherCurrentURL = 'https://api.weatherbit.io/v2.0/current?'
+const weatherForecastURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
+const pixURL = 'https://pixabay.com/api/?key='
 
 const fetch = require("node-fetch");
 
@@ -33,15 +41,19 @@ app.get('/', function (req, res) {
 app.post('/geo', city)
 
 async function city(req, res) {
-  let apicall = await fetch(`http://api.geonames.org/searchJSON?name_equals=${req.body}&username=${geoAPIKey}`);
-  if (apicall.status === 200) {
-    let data = await apicall.json();
-    res.send(data);
-    console.log('request is ' + req.body);
-    console.log(data);
-    console.log(apicall);
-  } else {
-    console.log('error is ', error);
+  let apicall = await fetch(`${geoURL}name_equals=${req.body}&username=${geoAPIKey}`);
+  try {
+      if (apicall.status === 200) {
+        let data = await apicall.json();
+        res.send(data);
+        console.log('request is ' + req.body);
+        console.log(data);
+        console.log(apicall);
+      } else {
+        console.log('apicall not OK');
+      }
+  } catch (error) {
+    console.log('caught error', error)
   }
 }
 //
