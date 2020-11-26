@@ -1,7 +1,6 @@
-// empty JS object to act as endpoint for all routes
-// const dotenv = require('dotenv')
-// dotenv.config()
-// const apikey = process.env.API_KEY
+const dotenv = require('dotenv')
+dotenv.config()
+const geoAPIKey = process.env.Geo_API_KEY
 
 const fetch = require("node-fetch");
 
@@ -34,7 +33,7 @@ app.get('/', function (req, res) {
 app.post('/geo', city)
 
 async function city(req, res) {
-  let apicall = await fetch(`http://api.geonames.org/searchJSON?name_equals=${req.body}&username=karlgoddard`);
+  let apicall = await fetch(`http://api.geonames.org/searchJSON?name_equals=${req.body}&username=${geoAPIKey}`);
   if (apicall.status === 200) {
     let data = await apicall.json();
     res.send(data);
