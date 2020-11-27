@@ -34,9 +34,14 @@
           <section>
               <div class="input">
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <p>input your City here:</p>
-                    <input id="inputCity" type="text" name="input" value="" placeholder="Name of City">
-                    <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                  <fieldset>
+                    <legend>TRAVEL DETAILS</legend>
+                    <label for="inputCity">input your City here:</label><br>
+                    <input id="inputCity" type="text" name="input" value="" placeholder="Name of City"></input>
+                    <label for="depDate">input your Departure Date here:</label><br>
+                    <input id="depDate" type="date" name="datemin" min="2020-11-30" max="2020-12-31" onclick="Client.minToday()"></input>
+                    <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)"></input>
+                  </fieldset>
                 </form>
               </div>
               <div class="outcome" id="outcome"></div>
