@@ -37,7 +37,13 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
+let destination = {};
 //get Geo
+
+app.get('/test', function(req, res) {
+    res.send(destination);
+})
+
 app.post('/geo', city)
 
 async function city(req, res) {
@@ -46,9 +52,12 @@ async function city(req, res) {
       if (apicall.status === 200) {
         let data = await apicall.json();
         res.send(data);
-        console.log('request is ' + req.body);
         console.log(data);
-        console.log(apicall);
+        let destLog = {
+          aaa: data.geonames[0].lat,
+          bbb: data.geonames[0].lng,
+        };
+        destination = destLog;
       } else {
         console.log('apicall not OK');
       }
@@ -56,18 +65,3 @@ async function city(req, res) {
     console.log('caught error', error)
   }
 }
-//
-// // post Route B
-// app.post('/add', addInfo);
-//
-// function addInfo(request, response) {
-//   console.log(request.body);
-//     let newEntry = {
-//     zip: request.body.zip,
-//     city: request.body.location,
-//     date: request.body.date,
-//     temp: request.body.temp,
-//     feelings: request.body.feelings,
-//   };
-//   projectData = newEntry;
-// }
