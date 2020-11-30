@@ -54,8 +54,8 @@ async function city(req, res) {
         res.send(data);
         console.log(data);
         let destLog = {
-          aaa: data.geonames[0].lat,
-          bbb: data.geonames[0].lng,
+          Lat: data.geonames[0].lat,
+          Lon: data.geonames[0].lng,
         };
         destination = destLog;
       } else {
