@@ -40,13 +40,13 @@
                     <input id="inputCity" type="text" name="city" value="" placeholder="Name of City"></input>
                     <label for="inputCountry">Destination Country (optional)</label><br>
                     <input id="inputCountry" type="text" name="country" value="" placeholder="Name of Country"></input>
-                    <label for="depDate">Departure Date (latest is 30 days from today)</label><br>
+                    <label for="depDate">Departure Date (max 30 days from today)</label><br>
                     <input id="depDate" type="date" name="minmaxdate" onclick="Client.minMaxDates()"></input>
                     <button type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">SUBMIT</button>
+                    <div id="inputCheck"></div>
                   </fieldset>
                 </form>
               </div>
-              <div class="outcome" id="outcome"></div>
           </section>
 
           <section>

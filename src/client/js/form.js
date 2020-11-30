@@ -5,12 +5,13 @@ function handleSubmit(event) {
   // check what text was put into the form field
   let cityName = document.getElementById("inputCity").value;
   let countryCode = document.getElementById("inputCountry").value;
-  let bodyText = `name_equals=${cityName}&country=${countryCode}`;
-  console.log(bodyText);
+  let depDate = document.getElementById("depDate").value;
+  let bodyText = `name_equals=${cityName}&countryCode=${countryCode}`;
 
-  if (Client.inputChecker(bodyText)) {
+  if (Client.inputChecker(cityName,depDate)) {
   console.log('input check OK');
-  //document.getElementById('outcome').innerHTML = 'Valid url.  Please wait while we retrieve the analysis';
+  document.getElementById('inputCheck').innerHTML = `Thank you ${depDate}`;
+
 
       fetch('http://localhost:8082/geo',{
       method: "POST",
@@ -26,9 +27,6 @@ function handleSubmit(event) {
           //const ScoreVal = ScoreText(res.score_tag);
           let place = res.geonames[0].countryName;
           document.getElementById('bbb').innerHTML = res.geonames[0].countryName;
-          //document.getElementById('ccc').innerHTML = res[totalResultsCount];
-          //document.getElementById('ddd').innerHTML = res.geonamescountryName[0];
-          // document.getElementById('irony').innerHTML = res.irony;
           // document.getElementById('outcome').innerHTML = 'Analysis Complete';
           // return (place, lat, long etc);
         })
@@ -38,7 +36,7 @@ function handleSubmit(event) {
 
   } else {
   console.log ('input check NOT OK');
-  //document.getElementById('outcome').innerHTML = 'Unable to analysis the url provided.  Please retry your entry ensuring it is a valid url starting with http: or https:';
+  document.getElementById('inputCheck').innerHTML = 'Please ensure you provide a Destination City and a Departure Date and retry';
   // return false;
   }
 
