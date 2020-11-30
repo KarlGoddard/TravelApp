@@ -4,10 +4,11 @@ function handleSubmit(event) {
 
   // check what text was put into the form field
   let cityName = document.getElementById("inputCity").value;
+  let countryCode = document.getElementById("inputCountry").value;
+  let bodyText = `name_equals=${cityName}&country=${countryCode}`;
+  console.log(bodyText);
 
-  console.log(cityName);
-
-  if (Client.inputChecker(cityName)) {
+  if (Client.inputChecker(bodyText)) {
   console.log('input check OK');
   //document.getElementById('outcome').innerHTML = 'Valid url.  Please wait while we retrieve the analysis';
 
@@ -17,7 +18,7 @@ function handleSubmit(event) {
       headers: {
       'Content-Type': 'text/plain'
       },
-      body: cityName
+      body: bodyText
       })
       .then((res) => res.json())
       .then(function(res) {

@@ -80,31 +80,44 @@ header footer {
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
+
+.searchDetails {
+  display: Flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+}
+
 label{
     display:block;
-    font-size: 27px;
+    font-size: 24px;
 }
 
 input{
     display:block;
+    text-align: center;
     height: 60px;
     width: 320px;
-    background:#fff;
+    background:#ddd;
     color: #000;
     font-size: 24px;
     font-family: 'Oswald', sans-serif;
-    border: none;
+    border: solid black 1px;
+    margin: 5px;
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 300px;
+    height: 80px;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+    margin: 10px;
 }
 
 h1{
@@ -128,16 +141,19 @@ button:focus {
 
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */
-    color: #f0d43a;
+    color: #3b4a6b;
     font-family: 'Oswald', sans-serif;
+    font-style: italic;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #f0d43a;
+    color: #3b4a6b;
     font-family: 'Oswald', sans-serif;
+    font-style: italic;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #f0d43a;
+    color: #3b4a6b;
     font-family: 'Oswald', sans-serif;
+    font-style: italic;
 }

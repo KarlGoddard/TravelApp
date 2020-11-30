@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
 app.post('/geo', city)
 
 async function city(req, res) {
-  let apicall = await fetch(`${geoURL}name_equals=${req.body}&username=${geoAPIKey}`);
+  let apicall = await fetch(`${geoURL}${req.body}&featureCode=PPL&FcodeName=populatedplace&username=${geoAPIKey}`);
   try {
       if (apicall.status === 200) {
         let data = await apicall.json();
