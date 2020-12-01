@@ -23,12 +23,8 @@ function handleSubmit(event) {
       })
       .then((res) => res.json())
       .then(function(res) {
-          //document.getElementById('bbb').innerHTML = res;
-          //const ScoreVal = ScoreText(res.score_tag);
           let place = res.geonames[0].countryName;
           document.getElementById('bbb').innerHTML = res.geonames[0].countryName;
-          // document.getElementById('outcome').innerHTML = 'Analysis Complete';
-          // return (place, lat, long etc);
         })
         .catch((error) =>{
           console.log(error);
@@ -36,7 +32,7 @@ function handleSubmit(event) {
 
   } else {
   console.log ('input check NOT OK');
-  document.getElementById('inputCheck').innerHTML = 'Please ensure you provide a Destination City and a Departure Date and retry';
+  document.getElementById('inputCheck').innerHTML = 'Please ensure you provide a Destination City and Departure Date, then retry';
   // return false;
   }
 

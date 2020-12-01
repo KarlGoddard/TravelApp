@@ -47,21 +47,72 @@ app.get('/test', function(req, res) {
 app.post('/geo', city)
 
 async function city(req, res) {
-  let apicall = await fetch(`${geoURL}${req.body}&featureCode=PPL&FcodeName=populatedplace&username=${geoAPIKey}`);
+  let geoapicall = await fetch(`${geoURL}${req.body}&featureCode=PPL&FcodeName=populatedplace&username=${geoAPIKey}`);
   try {
-      if (apicall.status === 200) {
-        let data = await apicall.json();
-        res.send(data);
-        console.log(data);
+      if (geoapicall.status === 200) {
+        let geodata = await geoapicall.json();
         let destLog = {
-          Lat: data.geonames[0].lat,
-          Lon: data.geonames[0].lng,
+          Lat: geodata.geonames[0].lat,
+          Lon: geodata.geonames[0].lng,
         };
         destination = destLog;
+        app.post('/weather',weather);
       } else {
-        console.log('apicall not OK');
+        console.log('geonames apicall not OK');
       }
   } catch (error) {
     console.log('caught error', error)
   }
 }
+
+async function weather(req,res) {
+  let Lat = destination.Lat;
+  let Lon = destination.Lon;
+  let weatherapicall = await fetch(`${weatherCurrentURL}&lat=${Lat}&lon=${Lon}&key=${weatherAPIKey}`);//req.body
+  try {
+      if (weatherapicall.status === 200) {
+        let weatherdata = await weatherapicall.json();
+        console.log(weatherdata);
+      } else {
+        console.log('weather apicall not OK');
+      }
+  } catch (error) {
+    console.log('caught error', error)
+  }
+}
+
+async function picture(req,res) {
+  // let Lat = destination.Lat;
+  // let Lon = destination.Lon;
+  let picapicall = await fetch(`${pixURL}key=${pixAPIKey}&q=${req.body}&image_type=photo&orientation=horixontal&category=places`);//cityname
+  try {
+      if (picapicall.status === 200) {
+        let picdata = await picapicall.json();
+        console.log(picdata);
+      } else {
+        console.log('picture apicall not OK');
+      }
+  } catch (error) {
+    console.log('caught error', error)
+  }
+}
+
+// async function city(req, res) {
+//   let apicall = await fetch(`${geoURL}${req.body}&featureCode=PPL&FcodeName=populatedplace&username=${geoAPIKey}`);
+//   try {
+//       if (apicall.status === 200) {
+//         let data = await apicall.json();
+//         res.send(data);
+//         console.log(data);
+//         let destLog = {
+//           Lat: data.geonames[0].lat,
+//           Lon: data.geonames[0].lng,
+//         };
+//         destination = destLog;
+//       } else {
+//         console.log('apicall not OK');
+//       }
+//   } catch (error) {
+//     console.log('caught error', error)
+//   }
+// }
