@@ -4,8 +4,16 @@ function getWeather(resFromGeoCall) {
   let Lat = resFromGeoCall.geonames[0].lat;
   let Lon = resFromGeoCall.geonames[0].lng;
   let bodyText = `lat=${Lat}&lon=${Lon}`;
+  let daysToGo = Client.daysToDeparture(depDate);
+  let daysNumber = daysToGo[0];
+  let fetchName;
+  if (daysNumber < 8) {
+    fetchName = 'weather';
+  } else {
+    fetchName = 'forecast';
+  };
 
-      fetch('http://localhost:8082/weather',{
+      fetch(`http://localhost:8082/${fetchName}`,{
       method: "POST",
       credentials: 'same-origin',
       headers: {

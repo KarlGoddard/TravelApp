@@ -56,7 +56,23 @@ async function city(req, res) {
 app.post('/weather', current)
 
 async function current(req,res) {
-  let weatherapicall = await fetch(`${weatherCurrentURL}${req.body}&key=${weatherAPIKey}`);//req.body
+  let weatherapicall = await fetch(`${weatherCurrentURL}${req.body}&key=${weatherAPIKey}`);
+  try {
+      if (weatherapicall.status === 200) {
+        let weatherdata = await weatherapicall.json();
+        console.log(weatherdata);
+      } else {
+        console.log('weather apicall not OK');
+      }
+  } catch (error) {
+    console.log('caught error', error)
+  }
+}
+
+app.post('/forecast', future)
+
+async function future(req,res) {
+  let weatherapicall = await fetch(`${weatherForecastURL}${req.body}&key=${weatherAPIKey}`);
   try {
       if (weatherapicall.status === 200) {
         let weatherdata = await weatherapicall.json();
@@ -74,12 +90,13 @@ app.post('/pix', picture)
 async function picture(req,res) {
   // let Lat = destination.Lat;
   // let Lon = destination.Lon;
-  let picapicall = await fetch(`${pixURL}key=${pixAPIKey}&q=${req.body}&image_type=photo&orientation=horixontal&category=places`);//cityname
+  let picapicall = await fetch(`${pixURL}${pixAPIKey}&q=${req.body}&image_type=photo&orientation=horixontal&category=places`);//cityname
   try {
       if (picapicall.status === 200) {
         let picdata = await picapicall.json();
         console.log(picdata);
       } else {
+        console.log(picapicall);
         console.log('picture apicall not OK');
       }
   } catch (error) {
