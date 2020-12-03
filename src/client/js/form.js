@@ -24,6 +24,7 @@ function handleSubmit(event) {
       .then((res) => res.json())
       .then(function(res) {
            //document.getElementById('bbb').innerHTML = res.geonames[0].lng
+           Client.getWeather(res);
         })
         .catch((error) =>{
           console.log(error);
