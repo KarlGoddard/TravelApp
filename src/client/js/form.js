@@ -23,9 +23,8 @@ function handleSubmit(event) {
       })
       .then((res) => res.json())
       .then(function(res) {
-           Client.daysToDeparture(depDate);
-           const daysToDeparture = 6;
-           if (daysToDeparture < 8) {
+           let daysToGo = Client.daysToDeparture(depDate);
+           if (daysToGo < 8) {
              Client.getWeather(res)
            } else {
            //document.getElementById('bbb').innerHTML = res.geonames[0].lng
