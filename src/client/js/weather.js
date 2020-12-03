@@ -24,7 +24,7 @@ function getWeather(resFromGeoCall) {
       })
       .then((res) => res.json())
       .then(function(res) {
-          Client.weatherUI(res);
+          Client.displayWeather(res);
         })
       .catch((error) =>{
           console.log(error);

@@ -14,6 +14,7 @@ function getPicture() {
       })
       .then((res) => res.json())
       .then(function(res) {
+          Client.displayImage(res);
           // let place = res.geonames[0].countryName;
           // document.getElementById('bbb').innerHTML = res.geonames[0].countryName;
           console.log(res)

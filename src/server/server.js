@@ -56,7 +56,8 @@ async function current(req,res) {
   try {
       if (weatherapicall.status === 200) {
         let weatherdata = await weatherapicall.json();
-        //console.log(weatherdata);
+        res.send(weatherdata);
+        console.log(weatherdata);
       } else {
         console.log('weather apicall not OK');
       }
@@ -72,6 +73,7 @@ async function future(req,res) {
   try {
       if (forecastapicall.status === 200) {
         let weatherdata = await forecastapicall.json();
+        res.send(weatherdata);
         //console.log(weatherdata);
       } else {
         console.log('weather apicall not OK');
@@ -91,6 +93,7 @@ async function picture(req,res) {
       if (picapicall.status === 200) {
         let picdata = await picapicall.json();
         //console.log(picdata);
+        //res.send(picdata);
       } else {
         console.log(picapicall);
         console.log('picture apicall not OK');

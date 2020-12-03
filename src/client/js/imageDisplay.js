@@ -1,7 +1,13 @@
-function displayWeather(res) {
+function displayImage(res) {
 
-document.getElementById('aaa').innerHTML = res.data.city_name;
-document.getElementById('bbb').innerHTML = res.data[0].city_name;
+//newImage = res.xxx;
+
+document.getElementById("pixImage").src = 'https://image.freepik.com/free-photo/moon_1048-2672.jpg';
+
+
+//document.getElementById('bbb').innerHTML = res.data[0].city_name;
+
+
 
 // const getData = async (url = "")=> {
 //   const response = await fetch(url);
@@ -18,4 +24,4 @@ document.getElementById('bbb').innerHTML = res.data[0].city_name;
 
 }
 
-export { displayWeather }
+export { displayImage }
