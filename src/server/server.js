@@ -37,9 +37,6 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-// let destination = {};
-//get Geo
-
 app.post('/geo', city)
 
 async function city(req, res) {
@@ -47,12 +44,6 @@ async function city(req, res) {
   try {
       if (geoapicall.status === 200) {
         let geodata = await geoapicall.json();
-        // let destLog = {
-        //   Lat: geodata.geonames[0].lat,
-        //   Lon: geodata.geonames[0].lng,
-        // };
-        // destination = destLog;
-        console.log(geodata);
         res.send(geodata);
       } else {
         console.log('geonames apicall not OK');
@@ -95,23 +86,3 @@ async function picture(req,res) {
     console.log('caught error', error)
   }
 }
-
-// async function city(req, res) {
-//   let apicall = await fetch(`${geoURL}${req.body}&featureCode=PPL&FcodeName=populatedplace&username=${geoAPIKey}`);
-//   try {
-//       if (apicall.status === 200) {
-//         let data = await apicall.json();
-//         res.send(data);
-//         console.log(data);
-//         let destLog = {
-//           Lat: data.geonames[0].lat,
-//           Lon: data.geonames[0].lng,
-//         };
-//         destination = destLog;
-//       } else {
-//         console.log('apicall not OK');
-//       }
-//   } catch (error) {
-//     console.log('caught error', error)
-//   }
-// }

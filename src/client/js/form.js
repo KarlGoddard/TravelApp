@@ -29,7 +29,7 @@ function handleSubmit(event) {
           })
           .then((res) => res.json())
           .then(function(res) {
-               if (daysNumber < 8) {
+                 if (daysNumber < 8) {
                  Client.getWeather(res)
                } else {
                //document.getElementById('bbb').innerHTML = res.geonames[0].lng
