@@ -30,7 +30,6 @@ function handleSubmit(event) {
           .then((res) => res.json())
           .then(function(res) {
               Client.getWeather(res);
-              console.log('here is the weather');//**BB - replace with js to update weather UI**
           })
           .then(function() {
               Client.getPicture();

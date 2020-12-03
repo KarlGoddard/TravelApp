@@ -13,7 +13,7 @@ function getWeather(resFromGeoCall) {
   } else {
     fetchName = 'forecast';
   };
-      console.log('fetchName is ' +fetchName);
+
       fetch(`http://localhost:8082/${fetchName}`,{
       method: "POST",
       credentials: 'same-origin',
@@ -24,11 +24,11 @@ function getWeather(resFromGeoCall) {
       })
       .then((res) => res.json())
       .then(function(res) {
-          console.log(res);
+          Client.weatherUI(res);
         })
-        .catch((error) =>{
+      .catch((error) =>{
           console.log(error);
-        });
+      });
 }
 
 export { getWeather }

@@ -25,10 +25,6 @@ app.use(bodyParser.text())
 const cors = require('cors')
 app.use(cors())
 
-// console.log(__dirname)
-// console.log(`Your API key is ${process.env.API_KEY}`)
-
-// designates what port the app will listen to for incoming requests
 app.listen(8082, function () {
     console.log('App listening on port 8082')
 })
@@ -60,28 +56,28 @@ async function current(req,res) {
   try {
       if (weatherapicall.status === 200) {
         let weatherdata = await weatherapicall.json();
-        console.log(weatherdata);
+        //console.log(weatherdata);
       } else {
         console.log('weather apicall not OK');
       }
   } catch (error) {
-    console.log('caught error', error)
+    console.log('caught error', error);
   }
 }
 
 app.post('/forecast', future)
 
 async function future(req,res) {
-  let weatherapicall = await fetch(`${weatherForecastURL}${req.body}&key=${weatherAPIKey}`);
+  let forecastapicall = await fetch(`${weatherForecastURL}${req.body}&key=${weatherAPIKey}`);
   try {
-      if (weatherapicall.status === 200) {
-        let weatherdata = await weatherapicall.json();
-        console.log(weatherdata);
+      if (forecastapicall.status === 200) {
+        let weatherdata = await forecastapicall.json();
+        //console.log(weatherdata);
       } else {
         console.log('weather apicall not OK');
       }
   } catch (error) {
-    console.log('caught error', error)
+    console.log('caught error', error);
   }
 }
 
@@ -94,7 +90,7 @@ async function picture(req,res) {
   try {
       if (picapicall.status === 200) {
         let picdata = await picapicall.json();
-        console.log(picdata);
+        //console.log(picdata);
       } else {
         console.log(picapicall);
         console.log('picture apicall not OK');

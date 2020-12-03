@@ -4,6 +4,7 @@ import { minMaxDates } from './js/formDate'
 import { getWeather } from './js/weather'
 import { daysToDeparture } from './js/daysToDeparture'
 import { getPicture } from './js/picture'
+import { weatherUI } from './js/weatherUI'
 
 import './styles/style.scss'
 
@@ -13,5 +14,6 @@ export {
   minMaxDates,
   getWeather,
   daysToDeparture,
-  getPicture
+  getPicture,
+  weatherUI
 }
