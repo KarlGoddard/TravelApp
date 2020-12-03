@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-let destination = {};
+// let destination = {};
 //get Geo
 
 app.post('/geo', city)
@@ -47,11 +47,12 @@ async function city(req, res) {
   try {
       if (geoapicall.status === 200) {
         let geodata = await geoapicall.json();
-        let destLog = {
-          Lat: geodata.geonames[0].lat,
-          Lon: geodata.geonames[0].lng,
-        };
-        destination = destLog;
+        // let destLog = {
+        //   Lat: geodata.geonames[0].lat,
+        //   Lon: geodata.geonames[0].lng,
+        // };
+        // destination = destLog;
+        console.log(geodata);
         res.send(geodata);
       } else {
         console.log('geonames apicall not OK');
