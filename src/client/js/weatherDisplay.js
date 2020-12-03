@@ -1,15 +1,7 @@
-function updateWeatherUI(res) {
+function displayWeather(res) {
 
+console.log('update weather html');
 console.log(res);
-// Create a new date instance dynamically with JS
-// let d = new Date();
-// let newD = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
-
-//Event listener to add function to existing HTML DOM element
-
-// document.getElementById("myInput").addEventListener("click", postData);
-
-/* Function to GET Project Data */
 
 // const getData = async (url = "")=> {
 //   const response = await fetch(url);
@@ -23,4 +15,7 @@ console.log(res);
 //     console.log("error", error);
 //   }
 // };
+
 }
+
+export { displayWeather }
