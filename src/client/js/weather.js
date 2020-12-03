@@ -1,6 +1,4 @@
-function handleSubmit(event) {
-
-  event.preventDefault();
+function getWeather(event) {
 
   // check what text was put into the form field
   let cityName = document.getElementById("inputCity").value;
@@ -13,7 +11,7 @@ function handleSubmit(event) {
   document.getElementById('inputCheck').innerHTML = `Thank you ${depDate}`;
 
 
-      fetch('http://localhost:8082/geo',{
+      fetch('http://localhost:8082/weather',{
       method: "POST",
       credentials: 'same-origin',
       headers: {
@@ -23,7 +21,9 @@ function handleSubmit(event) {
       })
       .then((res) => res.json())
       .then(function(res) {
-           //document.getElementById('bbb').innerHTML = res.geonames[0].lng
+          // let place = res.geonames[0].countryName;
+          // document.getElementById('bbb').innerHTML = res.geonames[0].countryName;
+           document.getElementById('bbb').innerHTML = res.geonames[0].lng
         })
         .catch((error) =>{
           console.log(error);
@@ -37,4 +37,4 @@ function handleSubmit(event) {
 
 }
 
-export { handleSubmit }
+export { getWeather }

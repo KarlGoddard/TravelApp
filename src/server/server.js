@@ -40,10 +40,6 @@ app.get('/', function (req, res) {
 let destination = {};
 //get Geo
 
-app.get('/test', function(req, res) {
-    res.send(destination);
-})
-
 app.post('/geo', city)
 
 async function city(req, res) {
@@ -56,7 +52,7 @@ async function city(req, res) {
           Lon: geodata.geonames[0].lng,
         };
         destination = destLog;
-        app.post('/weather',weather);
+        res.send(geodata);
       } else {
         console.log('geonames apicall not OK');
       }
@@ -65,7 +61,9 @@ async function city(req, res) {
   }
 }
 
-async function weather(req,res) {
+app.post('/weather', forecast)
+
+async function forecast(req,res) {
   let Lat = destination.Lat;
   let Lon = destination.Lon;
   let weatherapicall = await fetch(`${weatherCurrentURL}&lat=${Lat}&lon=${Lon}&key=${weatherAPIKey}`);//req.body
@@ -80,6 +78,8 @@ async function weather(req,res) {
     console.log('caught error', error)
   }
 }
+
+app.post('/pix', picture)
 
 async function picture(req,res) {
   // let Lat = destination.Lat;
