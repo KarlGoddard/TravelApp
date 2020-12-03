@@ -30,15 +30,14 @@ function handleSubmit(event) {
           .then((res) => res.json())
           .then(function(res) {
                  if (daysNumber < 8) {
-                 Client.getWeather(res)
+                 Client.getWeather(res);
                } else {
                //document.getElementById('bbb').innerHTML = res.geonames[0].lng
                  Client.getForecast(res);
                };
             })
-          .then(function(cityName) {
-              // Client.getPicture(cityName)
-              console.log(`pix api call for ${cityName}`)
+          .then(function() {
+                 Client.getPicture();
             })
           .catch((error) =>{
               console.log(error);
