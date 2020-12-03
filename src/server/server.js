@@ -61,16 +61,15 @@ async function city(req, res) {
   }
 }
 
-app.post('/weather', forecast)
+app.post('/weather', current)
 
-async function forecast(req,res) {
+async function current(req,res) {
   let weatherapicall = await fetch(`${weatherCurrentURL}${req.body}&key=${weatherAPIKey}`);//req.body
   try {
       if (weatherapicall.status === 200) {
         let weatherdata = await weatherapicall.json();
         console.log(weatherdata);
       } else {
-        console.log(weatherapicall)
         console.log('weather apicall not OK');
       }
   } catch (error) {
