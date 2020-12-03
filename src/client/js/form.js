@@ -29,7 +29,6 @@ function handleSubmit(event) {
           })
           .then((res) => res.json())
           .then(function(res) {
-
                if (daysNumber < 8) {
                  Client.getWeather(res)
                } else {
@@ -37,16 +36,19 @@ function handleSubmit(event) {
                  Client.getForecast(res);
                };
             })
-            .catch((error) =>{
+          .then(function(cityName) {
+              // Client.getPicture(cityName)
+              console.log(`pix api call for ${cityName}`)
+            })
+          .catch((error) =>{
               console.log(error);
-            });
+          });
 
   } else {
   console.log ('input check NOT OK');
   document.getElementById('inputCheck').innerHTML = 'Please ensure you provide a Destination City and Departure Date, then retry';
   // return false;
   }
-
 }
 
 export { handleSubmit }
