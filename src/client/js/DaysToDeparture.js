@@ -2,28 +2,14 @@ function daysToDeparture(dte) {
 
   console.log('Departure date is ' + dte);
 
-//   let currentDate = new Date();
-//   currentDate.setDate(minDate.getDate());
+  let currentDate = new Date();
+  currentDate.setDate(minDate.getDate());
 
-//   let maxDate = new Date();
-//   maxDate = minDate;
-//
-//   let minDateFormat = formatDate(minDate);
-//   let maxDateFormat = formatDate(addDays(maxDate,30));
-//
-//   function formatDate(date) {
-//     return date.getFullYear() + '-' + (date.getMonth() +1) + '-' + date.getDate();
-//   }
-//
-//   function addDays(date, days) {
-//     let result = new Date(date);
-//     result.setDate(result.getDate() + days);
-//     return result;
-//   }
-//
-//   document.getElementById("depDate").setAttribute("min", minDateFormat);
-//   document.getElementById("depDate").setAttribute("max", maxDateFormat);
-//
+  let timeDiff = Math.abs(dte.getTime() - currentDate.getTime());
+  let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+  console.log('Days to departure is ' + diffDays);
+  return diffDays;
 }
 
 export { daysToDeparture }
