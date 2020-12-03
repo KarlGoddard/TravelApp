@@ -7,9 +7,14 @@ function daysToDeparture(dte) {
   let timeDiff = Math.abs(inputDate - currentDate);
   let diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
 
-  console.log('Days to departure is ' + (diffDays));
+  if (diffDays == 0) {
+    return [diffDays,'today'];
+  } else if (diffDays == 1){
+    return [diffDays,'tomorrow'];
+  } else {
+    return [diffDays,'other'];
+  }
 
-  return diffDays;
 }
 
 export { daysToDeparture }

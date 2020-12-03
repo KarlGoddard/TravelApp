@@ -8,13 +8,15 @@ function handleSubmit(event) {
   let depDate = document.getElementById("depDate").value;
   let bodyText = `name_equals=${cityName}&countryCode=${countryCode}`;
   let daysToGo = Client.daysToDeparture(depDate);
+  let daysNumber = daysToGo[0];
+  let daysText = daysToGo[1];
 
   if (Client.inputChecker(cityName,depDate)) {
   console.log('input check OK');
-      if (daysToGo < 1) {
-            document.getElementById('inputCheck').innerHTML = `Thank you.  You are travelling today`;
+      if (daysNumber < 2) {
+            document.getElementById('inputCheck').innerHTML = `Thank you. You are travelling to ${cityName} ${daysText}`;
       } else {
-            document.getElementById('inputCheck').innerHTML = `Thank you, you depart for ${cityName} in ${daysToGo} day(s)`;
+            document.getElementById('inputCheck').innerHTML = `Thank you, you depart for ${cityName} in ${daysNumber} days`;
       }
 
           fetch('http://localhost:8082/geo',{
@@ -28,7 +30,7 @@ function handleSubmit(event) {
           .then((res) => res.json())
           .then(function(res) {
 
-               if (daysToGo < 7) {
+               if (daysNumber < 8) {
                  Client.getWeather(res)
                } else {
                //document.getElementById('bbb').innerHTML = res.geonames[0].lng
