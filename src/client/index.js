@@ -9,7 +9,8 @@ import { displayImage } from './js/imageDisplay'
 
 import './styles/style.scss'
 
-import img from './img/pexels-pixabay-414916.jpg'
+import img from './img/globe_small.jpg'
+import img from './img/globe_large.jpg'
 
 export {
   handleSubmit,
