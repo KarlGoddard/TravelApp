@@ -20,7 +20,7 @@ body{
 .grid-container {
     display:grid;
     grid-template-columns: repeat(2,1fr);
-    //grid-auto-rows: minmax(100px,auto);
+    grid-auto-rows: minmax(200px,auto);
     grid-gap: 10px;
     grid-template-areas:
     "desc input"
@@ -33,7 +33,7 @@ body{
   .grid-container {
     display:grid;
     grid-template-columns: 1fr;
-    //grid-auto-rows: minmax(auto);
+    grid-auto-rows: minmax(auto);
     grid-gap: 5px;
     grid-template-areas:
     "desc"
@@ -57,7 +57,13 @@ header footer {
 
 .desc {
   padding: 10px;
-  padding: 10px;
+  background-image: url('globe_large.jpg');
+  background-position: center;
+}
+
+.intro {
+  font-size: 30px;
+  color: white;
 }
 
 .input {
@@ -69,14 +75,28 @@ header footer {
   margin: 10px;
 }
 
-.weather {
+.weatherBox {
   grid-area: weather;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
 }
 
-.mainpic {
-  width:80%;
+.weather {
+  border: solid red 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  width:100%;
+  height:130px;
+}
+
+.mainpic, .placepic{
+  width: 100%;
   height: auto;
-  background-size: contain;
+  max-height: 460px;
+  overflow: hidden;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */

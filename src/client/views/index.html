@@ -17,11 +17,11 @@
       </header>
 
       <div class="grid-container">
-          <section>
-              <div class="desc">
-                  <div class="mainpic">
-                      <img src="globe_large.jpg" alt="globe picture" />
-                  </div>
+          <section class="desc">
+              <div class="intro">
+                  <!-- <div>
+                      <img class="mainpic" src="globe_large.jpg" alt="globe picture" />
+                  </div> -->
                   <div class="caption">
                       <blockquote>
                           <p><em>Where are you going?</em></p>
@@ -50,8 +50,8 @@
 
           <section>
               <div class="place">
-                  <div class="placepic">
-                      <img id="pixImage" src="map_large.jpg" alt="new Neptune moon" />
+                  <div>
+                      <img class="placepic" id="pixImage" src="map_large.jpg" alt="globe" />
                   </div>
                   <div class="caption">
                       <blockquote>
@@ -62,13 +62,30 @@
           </section>
 
           <section>
-              <div class="weather">
-                   <div class = "title">Most Recent Entry</div>
-                   <div id="entryHolder">
-                    <div id="aaa"></div>
-                    <div id="bbb"></div>
-                    <div id="ccc"></div>
-                    <div id="ddd"></div>
+              <div class="weatherBox">
+                  <div class="weather weathertitle weathernav">
+                      <div class="weather weathernav">left</div>
+                      <div id="weathertitle" class="weather weathertitle">Weather</div>
+                      <div class="weather weathernav">right</div>
+                  </div>
+                  <div class="weather sunposition" id="aaa">
+                      <div class="weather">
+                        <p id="rise">rise</p></br>
+                        <p><img class="icon" id="xxx" src="globe_small.jpg" alt="rise" /></p>
+                      </div>
+                      <div class="weather">
+                        <p id="set">set</p></br>
+                        <p><img class="icon" id="xxx" src="map_small.jpg" alt="set" /></p>
+                      </div>
+                  </div>
+                  <div class="weather temp" id="bbb">
+                      <div id="temp" class="weather">temp</div>
+                  </div>
+                  <div class="weather conditions" id="ccc">
+                      <div id="rain" class="weather">rain</div>
+                      <div id="clouds" class="weather">clouds</div>
+                      <div id="wind" class="weather">wind</div>
+                      <div id="snow" class="weather">snow</div>
                   </div>
               </div>
           </section>
