@@ -93,7 +93,7 @@ async function picture(req,res) {
       if (picapicall.status === 200) {
         let picdata = await picapicall.json();
         //console.log(picdata);
-        //res.send(picdata);
+        res.send(picdata);
       } else {
         console.log(picapicall);
         console.log('picture apicall not OK');

@@ -1,8 +1,8 @@
 function displayImage(res) {
 
-//newImage = res.xxx;
+let newImage = res.hits[0].userImageURL;
 
-document.getElementById("pixImage").src = 'https://image.freepik.com/free-photo/moon_1048-2672.jpg';
+document.getElementById("pixImage").src = newImage;
 
 
 //document.getElementById('bbb').innerHTML = res.data[0].city_name;
