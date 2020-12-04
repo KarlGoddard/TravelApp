@@ -8,6 +8,7 @@ import { displayWeather } from './js/weatherDisplay'
 import { displayImage } from './js/imageDisplay'
 
 import './styles/style.scss'
+import './styles/icons.scss'
 
 import img1 from './img/globe_small.jpg'
 import img2 from './img/globe_large.jpg'

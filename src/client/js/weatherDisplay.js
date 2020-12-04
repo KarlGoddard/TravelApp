@@ -1,7 +1,33 @@
 function displayWeather(res) {
 
-document.getElementById('aaa').innerHTML = res.data.city_name;
-document.getElementById('bbb').innerHTML = res.data[0].city_name;
+  let depDate = document.getElementById("depDate").value;
+  let daysToGo = Client.daysToDeparture(depDate);
+  let daysNumber = daysToGo[0];
+  if (daysNumber < 8) {
+     currentWeather();
+  } else {
+     forecast();
+  }
+
+function currentWeather() {
+  document.getElementById('aaa').innerHTML = 'current';
+}
+
+function forecast() {
+  document.getElementById('aaa').innerHTML = 'forecast';
+}
+// document.getElementById('aaa').innerHTML = 'forecast';
+// document.getElementById('bbb').innerHTML = res.data[0].clouds;
+// document.getElementById('ccc').innerHTML = res.data[0].wind_spd;
+// document.getElementById('ddd').innerHTML = fmt(res.data[0].datetime);
+//
+// function fmt(dte) {
+//   let
+//   let a = dte.substring(0,2);
+//   let b = dte.substring(3,5);
+//   let c = dte.susstring(6,8);
+//   return a + b + c;
+// }
 
 // const getData = async (url = "")=> {
 //   const response = await fetch(url);

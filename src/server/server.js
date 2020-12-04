@@ -74,7 +74,7 @@ async function future(req,res) {
       if (forecastapicall.status === 200) {
         let weatherdata = await forecastapicall.json();
         res.send(weatherdata);
-        //console.log(weatherdata);
+        console.log(weatherdata);
       } else {
         console.log('weather apicall not OK');
       }
