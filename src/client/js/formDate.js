@@ -9,7 +9,19 @@ function minMaxDates() {
   let maxDateFormat = formatDate(addDays(maxDate,30));
 
   function formatDate(date) {
-    return date.getFullYear() + '-' + (date.getMonth() +1) + '-' + date.getDate();
+    let mChars;
+    let dChars;
+    if ((date.getMonth() +1) < 10 ) {
+      mChars = '0' + (date.getMonth() +1);
+    } else {
+      mChars = (date.getMonth() +1);
+    };
+    if (date.getDate() < 10 ) {
+      dChars = '0' + (date.getDate() +1);
+    } else {
+      dChars = date.getDate();
+    };
+    return date.getFullYear() + '-' + mChars + '-' + dChars;
   }
 
   function addDays(date, days) {
