@@ -5,6 +5,8 @@ import { getWeather } from './js/weather'
 import { daysToDeparture } from './js/daysToDeparture'
 import { getPicture } from './js/picture'
 import { displayWeather } from './js/weatherDisplay'
+import { currentWeather } from './js/weatherDisplay'
+import { weatherForecast } from './js/weatherDisplay'
 import { displayImage } from './js/imageDisplay'
 
 import './styles/style.scss'
@@ -23,5 +25,7 @@ export {
   daysToDeparture,
   getPicture,
   displayWeather,
+  currentWeather,
+  weatherForecast,
   displayImage
 }

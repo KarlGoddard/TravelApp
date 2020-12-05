@@ -6,8 +6,10 @@ function displayWeather(res) {
   if (daysNumber < 8) {
      currentWeather(res);
   } else {
-     forecast(res);
+    let x = 0;
+    weatherForecast(res,x);
   }
+}
 
 function currentWeather(res) {
   document.getElementById('weathertitle').innerHTML = "Today's weather";
@@ -20,21 +22,26 @@ function currentWeather(res) {
   document.getElementById('snow').innerHTML = res.data[0].snow +' %';
 }
 
-function forecast() {
-  document.getElementById('weathertitle').innerHTML = "The 16 day forecast";
+function weatherForecast(res,x) {
+  document.getElementById('weathertitle').innerHTML = "THE 16 day forecast from " + res.data[x].datetime;
+  document.getElementById('rise').innerHTML = fmt(res.data[x].sunrise_ts);
+  document.getElementById('set').innerHTML = fmt(res.data[x].sunset_ts);
+  document.getElementById('temp').innerHTML = res.data[x].temp + ' celcius';
+  document.getElementById('rain').innerHTML = res.data[x].precip + ' mm';
+  document.getElementById('clouds').innerHTML = res.data[x].clouds + ' %';
+  document.getElementById('wind').innerHTML = res.data[x].wind_spd + ' kts';
+  document.getElementById('snow').innerHTML = res.data[x].snow +' %';
 }
-// document.getElementById('aaa').innerHTML = 'forecast';
-// document.getElementById('bbb').innerHTML = res.data[0].clouds;
-// document.getElementById('ccc').innerHTML = res.data[0].wind_spd;
-// document.getElementById('ddd').innerHTML = fmt(res.data[0].datetime);
-//
-// function fmt(dte) {
-//   let
-//   let a = dte.substring(0,2);
-//   let b = dte.substring(3,5);
-//   let c = dte.susstring(6,8);
-//   return a + b + c;
-// }
+
+function fmt(dte) {
+  let inputDate = new Date(dte).getTime();
+  let newDate = new Date(inputDate);
+  let dateChars = newDate.toString();
+  let a = dateChars.substring(0,4);
+  let b = dateChars.substring(8,11);
+  let c = dateChars.substring(4,7);
+  return a+b+c;
+}
 
 // const getData = async (url = "")=> {
 //   const response = await fetch(url);
@@ -49,6 +56,6 @@ function forecast() {
 //   }
 // };
 
-}
-
-export { displayWeather }
+export { displayWeather };
+export { currentWeather };
+export { weatherForecast };
