@@ -6,9 +6,22 @@ function displayWeather(res) {
   if (daysNumber < 8) {
      currentWeather(res);
   } else {
-    let x = 0;
-    weatherForecast(res,x);
+     populateArray(res);
+     let x = 0;
+     weatherForecast(res);
   }
+}
+
+function populateArray(res) {
+  const forecastArray = [];
+  let max = 15;
+  for (let i = 0; i <= max; i++) {
+    let temp = res.data[i].temp;
+    let precip = res.data[i].precip;
+    let clouds = res.data[i].clouds;
+    forecastArray.push({ temp, precip, clouds })
+    }
+  return forecastArray;
 }
 
 function currentWeather(res) {
@@ -41,6 +54,7 @@ function fmt(dte) {
   let b = dateChars.substring(8,11);
   let c = dateChars.substring(4,7);
   return a+b+c;
+  //return inputDate;
 }
 
 // const getData = async (url = "")=> {
