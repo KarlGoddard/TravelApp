@@ -9,11 +9,13 @@ function displayWeather(res) {
   } else {
      // forecastValues = populateArray(res);
      // weatherForecast(forecastValues);
-     getForecast('/forecastValues')
+     weatherForecast(0);
   }
 }
 
 function currentWeather(res) {
+  document.getElementById('prevDay').style.display = 'none';
+  document.getElementById('nextDay').style.display = 'none';
   document.getElementById('weathertitle').innerHTML = "Today's weather";
   document.getElementById('rise').innerHTML = res.data[0].sunrise;
   document.getElementById('set').innerHTML = res.data[0].sunset;
@@ -59,16 +61,32 @@ function fmt(dte) {
   return inputDate;
 }
 
-const getForecast = async (url = "")=> {
-  const response = await fetch(url);
-  try {
-    let forecastData = await response.json();
-     document.getElementById('temp').innerHTML = forecastData.temp;
-  } catch (error) {
-    console.log("error", error);
-  }
-};
+function weatherForecast (forecastDay) {
+  let x = Number(forecastDay);
+  const getForecast = async (url = "",)=> {
+    const response = await fetch(url);
+    try {
+      let forecastData = await response.json();
+      if (x == 0) {
+        document.getElementById('prevDay').innerHTML = '';
+        document.getElementById('nextDay').innerHTML = 'Day ' + (x+1) + ' >>';
+      } else if (x > 14) {
+        document.getElementById('prevDay').innerHTML = '<< Day ' + (x-1);
+        document.getElementById('nextDay').innerHTML = '';
+      } else {
+        document.getElementById('prevDay').innerHTML = '<< Day ' + (x-1);
+        document.getElementById('nextDay').innerHTML = 'Day ' + (x+1) + ' >>';
+      }
+      document.getElementById('temp').innerHTML = forecastData[x].temp;
+      document.getElementById('rain').innerHTML = forecastData[x].precip;
+      document.getElementById('clouds').innerHTML = forecastData[x].clouds;
+    } catch (error) {
+        console.log("error", error);
+    }
+  };
+    getForecast('/forecastValues')
+}
 
 export { displayWeather };
 export { currentWeather };
-//export { weatherForecast };
+export { weatherForecast };
