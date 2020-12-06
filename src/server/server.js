@@ -66,6 +66,8 @@ async function current(req,res) {
   }
 }
 
+let forecastArray = [];
+
 app.post('/forecast', future)
 
 async function future(req,res) {
@@ -74,7 +76,22 @@ async function future(req,res) {
       if (forecastapicall.status === 200) {
         let weatherdata = await forecastapicall.json();
         res.send(weatherdata);
-        console.log(weatherdata);
+        //console.log(weatherdata);
+        let forecastValues = [];
+        const max = 15;
+        for (let i = 0; i <= max; i++) {
+            let temp = weatherdata.data[i].temp;
+            let precip = weatherdata.data[i].precip;
+            let clouds = weatherdata.data[i].clouds;
+            forecastValues.push({ temp, precip, clouds })
+            };
+        forecastArray = forecastValues;
+    //     let newEntry = {
+    // zip: request.body.zip,
+    // city: request.body.location,
+    // date: request.body.date,
+    // temp: request.body.temp,
+    // feelings: request.body.feelings,
       } else {
         console.log('weather apicall not OK');
       }
@@ -82,6 +99,10 @@ async function future(req,res) {
     console.log('caught error', error);
   }
 }
+
+app.get('/forecastValues', function (request, response) {
+    response.send(forecastArray);
+  });
 
 app.post('/pix', picture)
 
