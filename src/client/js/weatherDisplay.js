@@ -61,12 +61,18 @@ function fmt(dte) {
   return inputDate;
 }
 
-function weatherForecast (forecastDay) {
+function weatherForecast(forecastDay) {
   let x = Number(forecastDay);
+  const buttonPrevText = '<button id="prevDay" type="submit" value="Submit" onclick="return Client.weatherForecast(9)"onsubmit="return Client.weatherForecast(9)"></button>';
+  const buttonNextText = '<button id="nextDay" type="submit" value="Submit" onclick="return Client.weatherForecast(9)"onsubmit="return Client.weatherForecast(9)"></button>';
   const getForecast = async (url = "",)=> {
     const response = await fetch(url);
     try {
       let forecastData = await response.json();
+      //navigation click actions
+      document.getElementById('navPrev').innerHTML = buttonPrevText;
+      document.getElementById('navNext').innerHTML = buttonNextText;
+      //navigation button labels
       if (x == 0) {
         document.getElementById('prevDay').innerHTML = '';
         document.getElementById('nextDay').innerHTML = 'Day ' + (x+1) + ' >>';
@@ -77,6 +83,7 @@ function weatherForecast (forecastDay) {
         document.getElementById('prevDay').innerHTML = '<< Day ' + (x-1);
         document.getElementById('nextDay').innerHTML = 'Day ' + (x+1) + ' >>';
       }
+      //show forecast values
       document.getElementById('temp').innerHTML = forecastData[x].temp;
       document.getElementById('rain').innerHTML = forecastData[x].precip;
       document.getElementById('clouds').innerHTML = forecastData[x].clouds;
