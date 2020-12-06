@@ -63,8 +63,10 @@ function fmt(dte) {
 
 function weatherForecast(forecastDay) {
   let x = Number(forecastDay);
-  const buttonPrevText = '<button id="prevDay" type="submit" value="Submit" onclick="return Client.weatherForecast(9)"onsubmit="return Client.weatherForecast(9)"></button>';
-  const buttonNextText = '<button id="nextDay" type="submit" value="Submit" onclick="return Client.weatherForecast(9)"onsubmit="return Client.weatherForecast(9)"></button>';
+  let p = (x-1);
+  let n = (x+1);
+  const buttonPrevText = '<button id="prevDay" type="submit" value="Submit" onclick="return Client.weatherForecast('+ p +')"onsubmit="return Client.weatherForecast('+ p +')"></button>';
+  const buttonNextText = '<button id="nextDay" type="submit" value="Submit" onclick="return Client.weatherForecast('+ n +')"onsubmit="return Client.weatherForecast('+ n +')"></button>';
   const getForecast = async (url = "",)=> {
     const response = await fetch(url);
     try {
@@ -75,13 +77,13 @@ function weatherForecast(forecastDay) {
       //navigation button labels
       if (x == 0) {
         document.getElementById('prevDay').innerHTML = '';
-        document.getElementById('nextDay').innerHTML = 'Day ' + (x+1) + ' >>';
-      } else if (x > 14) {
-        document.getElementById('prevDay').innerHTML = '<< Day ' + (x-1);
+        document.getElementById('nextDay').innerHTML = 'Day ' + (n+1) + ' >>';
+      } else if (x > 13) {
+        document.getElementById('prevDay').innerHTML = '<< Day ' + x;
         document.getElementById('nextDay').innerHTML = '';
       } else {
-        document.getElementById('prevDay').innerHTML = '<< Day ' + (x-1);
-        document.getElementById('nextDay').innerHTML = 'Day ' + (x+1) + ' >>';
+        document.getElementById('prevDay').innerHTML = '<< Day ' + x;
+        document.getElementById('nextDay').innerHTML = 'Day ' + (n+1) + ' >>';
       }
       //show forecast values
       document.getElementById('temp').innerHTML = forecastData[x].temp;
