@@ -19,7 +19,7 @@ function getPicture(city,country) {
           } else if (res.total == 0) {
             Client.getPicture(country,country);
           } else {
-            Client.displayImage(noPic);
+            Client.displayImage(res);
           }
         })
         .catch((error) =>{

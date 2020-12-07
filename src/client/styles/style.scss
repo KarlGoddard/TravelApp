@@ -60,13 +60,16 @@ header footer {
 
 .desc {
   grid-area: desc;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url('globe_large.jpg');
   background-position: center;
 }
 
 .intro {
-  font-size: 30px;
+  font-size: 46px;
   color: white;
 }
 
@@ -89,15 +92,21 @@ header footer {
   align-content: stretch;
 }
 
+.toprow {
+  height:140px;
+}
+
+.midrow, .btmrow {
+  height:200px;
+}
+
 .weather {
-  border: solid red 1px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
   text-align: center;
   width:100%;
-  height:180px;
 }
 
 .picText {
@@ -136,7 +145,7 @@ input{
     display:block;
     text-align: center;
     height: 60px;
-    width: 300px;
+    width: 280px;
     background:#ddd;
     color: #000;
     font-size: 24px;
@@ -145,11 +154,18 @@ input{
     margin: 5px 0 20px 0;
 }
 
+.weathertitle {
+  display: Flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #3b4a6b;
+  font-weight: bold;
+}
+
 .weathernav button {
     width: 76px;
     height: 80px;
-    background: #ccc;
-    color: #111;
+    color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -158,7 +174,7 @@ input{
 }
 
 button {
-    width: 300px;
+    width: 280px;
     height: 80px;
     background: #3b4a6b;
     color: #f0d43a;

@@ -18,7 +18,7 @@
 
       <div class="grid-container">
           <section class="desc">
-              <div class="caption">
+              <div class="intro">
                   <p><em>Where are you going?</em></p>
               </div>
           </section>
@@ -55,12 +55,12 @@
 
           <section>
               <div class="weatherBox">
-                  <div class="weather weathertitle weathernav">
+                  <div class="weather toprow">
                       <div id="navPrev" class="weather weathernav"><button id="prevDay" type="submit" value="Submit"></button></div>
                       <div id="weathertitle" class="weather weathertitle">Weather will appear here</div>
                       <div id="navNext" class="weather weathernav"><button id="nextDay" type="submit" value="Submit" onclick="return Client.weatherForecast(3)"onsubmit="return Client.weatherForecast(3)"></button></div>
                   </div>
-                  <div class="weather">
+                  <div class="weather midrow">
                       <div class="picText">
                           <p><img class="icon" src="temp.png" alt="sun icon" /></p>
                           <div id="temp">temp</div>
@@ -70,7 +70,7 @@
                           <div id="rain">rain</div>
                       </div>
                   </div>
-                  <div class="weather">
+                  <div class="weather btmrow">
                       <div class="picText">
                           <p><img class="icon" src="cloud.png" alt="cloud icon" /></p>
                           <div id="clouds">clouds</div>
