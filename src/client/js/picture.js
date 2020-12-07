@@ -1,8 +1,8 @@
-function getPicture() {
+function getPicture(city,country) {
 
-  let cityName = document.getElementById("inputCity").value;
-  let countryCode = document.getElementById("inputCountry").value;
-  let bodyText = cityName;
+  //let cityName = document.getElementById("inputCity").value;
+  //let countryName = document.getElementById("inputCountry").value;
+  let bodyText = city;
 
       fetch('http://localhost:8082/pix',{
       method: "POST",
@@ -14,11 +14,13 @@ function getPicture() {
       })
       .then((res) => res.json())
       .then(function(res) {
-          Client.displayImage(res);
-          // let place = res.geonames[0].countryName;
-          // document.getElementById('bbb').innerHTML = res.geonames[0].countryName;
-          console.log(res)
-          //document.getElementById('bbb').innerHTML = res.geonames[0].lng
+          if (res.total > 0) {
+            Client.displayImage(res);
+          } else if (res.total == 0) {
+            Client.getPicture(country,country);
+          } else {
+            Client.displayImage(noPic);
+          }
         })
         .catch((error) =>{
           console.log(error);

@@ -4,9 +4,9 @@ function handleSubmit(event) {
 
   // check what text was put into the form field
   let cityName = document.getElementById("inputCity").value;
-  let countryCode = document.getElementById("inputCountry").value;
+  let countryName = document.getElementById("inputCountry").value;
   let depDate = document.getElementById("depDate").value;
-  let bodyText = `name_equals=${cityName}&countryCode=${countryCode}`;
+  let bodyText = `name_equals=${cityName}`;
   let daysToGo = Client.daysToDeparture(depDate);
   let daysNumber = daysToGo[0];
   let daysText = daysToGo[1];
@@ -32,7 +32,7 @@ function handleSubmit(event) {
               Client.getWeather(res);
           })
           .then(function() {
-              Client.getPicture();
+              Client.getPicture(cityName,countryName);
             })
           .catch((error) =>{
               console.log(error);
