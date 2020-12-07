@@ -13,8 +13,14 @@ import './styles/style.scss'
 import './styles/icons.scss'
 
 import img1 from './img/globe_small.jpg'
-import img3 from './img/map_small.jpg'
-import img4 from './img/map_large.jpg'
+import img2 from './img/map_small.jpg'
+import img3 from './img/map_large.jpg'
+import img4 from './img/temp.png'
+import img5 from './img/rain.png'
+import img6 from './img/cloud.png'
+import img7 from './img/wind.png'
+import img8 from './img/snow.png'
+
 
 export {
   handleSubmit,

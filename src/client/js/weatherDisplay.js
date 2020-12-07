@@ -12,14 +12,18 @@ function displayWeather(res) {
   }
 }
 
+function twoDec(fig) {
+  return fig.toFixed(2);
+}
+
 function currentWeather(res) {
   document.getElementById('prevDay').style.display = 'none';
   document.getElementById('nextDay').style.display = 'none';
   document.getElementById('weathertitle').innerHTML = "Today's weather";
-  document.getElementById('temp').innerHTML = res.data[0].temp + ' Celcius';
-  document.getElementById('rain').innerHTML = res.data[0].precip + ' mm';
+  document.getElementById('temp').innerHTML = res.data[0].temp + ' C';
+  document.getElementById('rain').innerHTML = twoDec(res.data[0].precip) + ' mm';
   document.getElementById('clouds').innerHTML = res.data[0].clouds + ' %';
-  document.getElementById('wind').innerHTML = res.data[0].wind_spd + ' kts';
+  document.getElementById('wind').innerHTML = twoDec(res.data[0].wind_spd) + ' kts';
   document.getElementById('snow').innerHTML = res.data[0].snow +' %';
 }
 
@@ -49,10 +53,10 @@ function weatherForecast(forecastDay) {
       }
       //show forecast values
       document.getElementById('weathertitle').innerHTML = 'Daily forecast for ' + forecastData[x].date;
-      document.getElementById('temp').innerHTML = forecastData[x].temp + ' Celsius';
-      document.getElementById('rain').innerHTML = forecastData[x].precip + ' mm';
+      document.getElementById('temp').innerHTML = forecastData[x].temp + ' C';
+      document.getElementById('rain').innerHTML = twoDec(forecastData[x].precip) + ' mm';
       document.getElementById('clouds').innerHTML = forecastData[x].clouds + ' %';
-      document.getElementById('wind').innerHTML = forecastData[x].wind + ' kts';
+      document.getElementById('wind').innerHTML = twoDec(forecastData[x].wind) + ' kts';
       document.getElementById('snow').innerHTML = forecastData[x].snow + ' %';
     } catch (error) {
         console.log("error", error);
