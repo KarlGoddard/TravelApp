@@ -114,11 +114,11 @@ app.post('/pix', picture)
 async function picture(req,res) {
   // let Lat = destination.Lat;
   // let Lon = destination.Lon;
-  let picapicall = await fetch(`${pixURL}${pixAPIKey}&q=${req.body}&image_type=photo&orientation=horixontal&category=places`);//cityname
+  let picapicall = await fetch(`${pixURL}${pixAPIKey}&q=${req.body}&image_type=photo&orientation=horixontal&category=places&per_page=3`);//cityname
   try {
       if (picapicall.status === 200) {
         let picdata = await picapicall.json();
-        //console.log(picdata);
+        console.log(picdata);
         res.send(picdata);
       } else {
         console.log(picapicall);

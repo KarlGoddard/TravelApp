@@ -4,6 +4,14 @@ body{
     font-size: 24px;
 }
 
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
 .grid-container {
     display:grid;
     grid-template-columns: repeat(2,1fr);
@@ -43,10 +51,10 @@ header footer {
   height: 60px;
 }
 
-.hd {
-
-  font-size: 40px;
-
+.hd, .ft{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .desc {
@@ -139,10 +147,6 @@ button{
   font-size: 18px;
   color: #E7070E;
   padding: 10px 0;
-}
-
-h1{
-    font-size: 36px;
 }
 
 /* Reset style for HTML element on active to have no border
