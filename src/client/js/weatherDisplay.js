@@ -7,8 +7,7 @@ function displayWeather(res) {
   if (daysNumber < 8) {
      currentWeather(res);
   } else {
-     // forecastValues = populateArray(res);
-     // weatherForecast(forecastValues);
+    //weatherForecast gets values from array object on server.  Pass starting array value of 0
      weatherForecast(0);
   }
 }
@@ -26,39 +25,18 @@ function currentWeather(res) {
   document.getElementById('snow').innerHTML = res.data[0].snow +' %';
 }
 
-// function populateArray(res) {
-//   let forecastArray = [];
-//   const max = 15;
-//   for (let i = 0; i <= max; i++) {
-//     let temp = res.data[i].temp;
-//     let precip = res.data[i].precip;
-//     let clouds = res.data[i].clouds;
-//     forecastArray.push({ temp, precip, clouds })
-//   };
-//   return forecastArray;
-// }
-
-// function weatherForecast(fcast) {
-  //document.getElementById('weathertitle').innerHTML = "THE 16 day forecast from " + forecastValues[0].datetime;
-  // document.getElementById('temp').innerHTML = fcast[1].temp;
-  // document.getElementById('rise').innerHTML = fmt(res.data[x].sunrise_ts);
-  // document.getElementById('set').innerHTML = fmt(res.data[x].sunset_ts);
-  // document.getElementById('temp').innerHTML = res.data[x].temp + ' Celcius';
-  // document.getElementById('rain').innerHTML = res.data[x].precip + ' mm';
-  // document.getElementById('clouds').innerHTML = res.data[x].clouds + ' %';
-  // document.getElementById('wind').innerHTML = res.data[x].wind_spd + ' kts';
-  // document.getElementById('snow').innerHTML = res.data[x].snow +' %';
-//
-
-function fmt(dte) {
-  let inputDate = new Date(dte).getTime();
-  // let newDate = new Date(inputDate);
-  // let dateChars = newDate.toString();
-  // let a = dateChars.substring(0,4);
-  // let b = dateChars.substring(8,11);
-  // let c = dateChars.substring(4,7);
-  // return a+b+c;
-  return inputDate;
+function fmt(dtetime) {
+ // let newDate = new Date;
+ // newDate.setTime(dtetime);
+ // let hrs = newDate.getHours();
+ // let mins = newDate.getMins();
+ // let outputTime = hrs.toString() + ':' + mins.toString();
+// let dateChars = newDate.toString();
+// let a = dateChars.substring(0,4);
+// let b = dateChars.substring(8,11);
+// let c = dateChars.substring(4,7);
+// return a+b+c;
+  return dtetime;
 }
 
 function weatherForecast(forecastDay) {
@@ -86,9 +64,14 @@ function weatherForecast(forecastDay) {
         document.getElementById('nextDay').innerHTML = 'Day ' + (n+1) + ' >>';
       }
       //show forecast values
-      document.getElementById('temp').innerHTML = forecastData[x].temp;
-      document.getElementById('rain').innerHTML = forecastData[x].precip;
-      document.getElementById('clouds').innerHTML = forecastData[x].clouds;
+      document.getElementById('weathertitle').innerHTML = 'Daily forecast for ' + forecastData[x].date;
+      document.getElementById('rise').innerHTML = fmt(forecastData[x].sunrise);
+      document.getElementById('set').innerHTML = fmt(forecastData[x].sunset);
+      document.getElementById('temp').innerHTML = forecastData[x].temp + ' Celsius';
+      document.getElementById('rain').innerHTML = forecastData[x].precip + ' mm';
+      document.getElementById('clouds').innerHTML = forecastData[x].clouds + ' %';
+      document.getElementById('wind').innerHTML = forecastData[x].wind + ' kts';
+      document.getElementById('snow').innerHTML = forecastData[x].snow + ' %';
     } catch (error) {
         console.log("error", error);
     }

@@ -3,9 +3,13 @@ function displayImage(res) {
 let newImage = res.hits[0].userImageURL;
 
 document.getElementById("pixImage").src = newImage;
-
-
-//document.getElementById('bbb').innerHTML = res.data[0].city_name;
+// document.getElementsByClassName('place').style.backgroundImage = "url(" + newImage + ")";
+// //
+// // let images = ['globe_small.jpg', 'weather.png'];
+// //
+// // document.getElementsByClassName('place').style.backgroundImage = "url(" + images[1] + ")";
+//
+// //document.getElementById('bbb').innerHTML = res.data[0].city_name;
 
 
 

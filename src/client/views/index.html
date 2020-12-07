@@ -12,21 +12,14 @@
 
       <header>
           <div class="hd">
-            TRAVEL APP
+            <h1>TRAVEL APP</h1>
           </div>
       </header>
 
       <div class="grid-container">
           <section class="desc">
-              <div class="intro">
-                  <!-- <div>
-                      <img class="mainpic" src="globe_large.jpg" alt="globe picture" />
-                  </div> -->
-                  <div class="caption">
-                      <blockquote>
-                          <p><em>Where are you going?</em></p>
-                      </blockquote>
-                  </div>
+              <div class="caption">
+                  <p><em>Where are you going?</em></p>
               </div>
           </section>
 
@@ -48,24 +41,32 @@
               </div>
           </section>
 
-          <section>
+          <section class="place">
+              <div>
+                  <img class="placepic" id="pixImage" src="map_large.jpg" alt="globe" />
+              </div>
+              <div class="caption">
+                  <p><em>Where are you going?</em></p>
+              </div>
+          </section>
+
+
+          <!-- <section>
               <div class="place">
                   <div>
                       <img class="placepic" id="pixImage" src="map_large.jpg" alt="globe" />
                   </div>
                   <div class="caption">
-                      <blockquote>
                           <p><em>Which city?</em></p>
-                      </blockquote>
                   </div>
               </div>
-          </section>
+          </section> -->
 
           <section>
               <div class="weatherBox">
                   <div class="weather weathertitle weathernav">
                       <div id="navPrev" class="weather weathernav"><button id="prevDay" type="submit" value="Submit"></button></div>
-                      <div id="weathertitle" class="weather weathertitle">Weather</div>
+                      <div id="weathertitle" class="weather weathertitle">Weather will appear here</div>
                       <div id="navNext" class="weather weathernav"><button id="nextDay" type="submit" value="Submit" onclick="return Client.weatherForecast(3)"onsubmit="return Client.weatherForecast(3)"></button></div>
                   </div>
                   <div class="weather sunposition" id="aaa">
