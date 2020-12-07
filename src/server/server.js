@@ -80,10 +80,15 @@ async function future(req,res) {
         let forecastValues = [];
         const max = 15;
         for (let i = 0; i <= max; i++) {
+            let date = weatherdata.data[i].datetime;
             let temp = weatherdata.data[i].temp;
             let precip = weatherdata.data[i].precip;
             let clouds = weatherdata.data[i].clouds;
-            forecastValues.push({ temp, precip, clouds })
+            let wind = weatherdata.data[i].wind_spd;
+            let snow = weatherdata.data[i].snow;
+            let rise = weatherdata.data[i].sunrise_ts;
+            let set = weatherdata.data[i].sunset_ts;
+            forecastValues.push({ date, temp, precip, clouds, wind, snow, rise, set })
             };
         forecastArray = forecastValues;
     //     let newEntry = {
