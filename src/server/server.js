@@ -86,9 +86,9 @@ async function future(req,res) {
             let clouds = weatherdata.data[i].clouds;
             let wind = weatherdata.data[i].wind_spd;
             let snow = weatherdata.data[i].snow;
-            let rise = weatherdata.data[i].sunrise_ts;
-            let set = weatherdata.data[i].sunset_ts;
-            forecastValues.push({ date, temp, precip, clouds, wind, snow, rise, set })
+            // let rise = weatherdata.data[i].sunrise_ts;
+            // let set = weatherdata.data[i].sunset_ts;
+            forecastValues.push({ date, temp, precip, clouds, wind, snow })
             };
         forecastArray = forecastValues;
     //     let newEntry = {

@@ -16,27 +16,11 @@ function currentWeather(res) {
   document.getElementById('prevDay').style.display = 'none';
   document.getElementById('nextDay').style.display = 'none';
   document.getElementById('weathertitle').innerHTML = "Today's weather";
-  document.getElementById('rise').innerHTML = res.data[0].sunrise;
-  document.getElementById('set').innerHTML = res.data[0].sunset;
   document.getElementById('temp').innerHTML = res.data[0].temp + ' Celcius';
   document.getElementById('rain').innerHTML = res.data[0].precip + ' mm';
   document.getElementById('clouds').innerHTML = res.data[0].clouds + ' %';
   document.getElementById('wind').innerHTML = res.data[0].wind_spd + ' kts';
   document.getElementById('snow').innerHTML = res.data[0].snow +' %';
-}
-
-function fmt(dtetime) {
- // let newDate = new Date;
- // newDate.setTime(dtetime);
- // let hrs = newDate.getHours();
- // let mins = newDate.getMins();
- // let outputTime = hrs.toString() + ':' + mins.toString();
-// let dateChars = newDate.toString();
-// let a = dateChars.substring(0,4);
-// let b = dateChars.substring(8,11);
-// let c = dateChars.substring(4,7);
-// return a+b+c;
-  return dtetime;
 }
 
 function weatherForecast(forecastDay) {
@@ -65,8 +49,6 @@ function weatherForecast(forecastDay) {
       }
       //show forecast values
       document.getElementById('weathertitle').innerHTML = 'Daily forecast for ' + forecastData[x].date;
-      document.getElementById('rise').innerHTML = fmt(forecastData[x].sunrise);
-      document.getElementById('set').innerHTML = fmt(forecastData[x].sunset);
       document.getElementById('temp').innerHTML = forecastData[x].temp + ' Celsius';
       document.getElementById('rain').innerHTML = forecastData[x].precip + ' mm';
       document.getElementById('clouds').innerHTML = forecastData[x].clouds + ' %';

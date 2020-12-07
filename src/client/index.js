@@ -13,7 +13,6 @@ import './styles/style.scss'
 import './styles/icons.scss'
 
 import img1 from './img/globe_small.jpg'
-import img2 from './img/globe_large.jpg'
 import img3 from './img/map_small.jpg'
 import img4 from './img/map_large.jpg'
 
