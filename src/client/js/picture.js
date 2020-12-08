@@ -1,7 +1,6 @@
 function getPicture(city,country) {
 
-  //let cityName = document.getElementById("inputCity").value;
-  //let countryName = document.getElementById("inputCountry").value;
+
   let bodyText = city;
 
       fetch('http://localhost:8082/pix',{

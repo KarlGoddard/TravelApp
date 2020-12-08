@@ -47,6 +47,7 @@ header footer {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
   width: 100%;
   height: 60px;
 }
@@ -64,6 +65,7 @@ header footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-image: url('globe_large.jpg');
   background-position: center;
 }
@@ -75,13 +77,16 @@ header footer {
 
 .input {
   grid-area: input;
+  text-align: center;
 }
 
 .place {
   grid-area: place;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  text-align: center;
   padding: 10px;
 }
 
@@ -89,7 +94,7 @@ header footer {
   grid-area: weather;
   display: flex;
   flex-direction: column;
-  align-content: stretch;
+  align-content: center;
 }
 
 .toprow {
