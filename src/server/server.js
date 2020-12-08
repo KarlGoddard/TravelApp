@@ -41,7 +41,6 @@ async function city(req, res) {
       let geodata = await geoapicall.json();
       if (geoapicall.status === 200) {
       res.send(geodata);
-      console.log(geodata);
       } else {
       console.log('geonames apicall not OK');
       }
@@ -58,7 +57,6 @@ async function current(req,res) {
       if (weatherapicall.status === 200) {
         let weatherdata = await weatherapicall.json();
         res.send(weatherdata);
-        console.log(weatherdata);
       } else {
         console.log('weather apicall not OK');
       }
@@ -77,7 +75,6 @@ async function future(req,res) {
       if (forecastapicall.status === 200) {
         let weatherdata = await forecastapicall.json();
         res.send(weatherdata);
-        //console.log(weatherdata);
         let forecastValues = [];
         const max = 15;
         for (let i = 0; i <= max; i++) {
@@ -87,17 +84,9 @@ async function future(req,res) {
             let clouds = weatherdata.data[i].clouds;
             let wind = weatherdata.data[i].wind_spd;
             let snow = weatherdata.data[i].snow;
-            // let rise = weatherdata.data[i].sunrise_ts;
-            // let set = weatherdata.data[i].sunset_ts;
             forecastValues.push({ date, temp, precip, clouds, wind, snow })
             };
         forecastArray = forecastValues;
-    //     let newEntry = {
-    // zip: request.body.zip,
-    // city: request.body.location,
-    // date: request.body.date,
-    // temp: request.body.temp,
-    // feelings: request.body.feelings,
       } else {
         console.log('weather apicall not OK');
       }
@@ -113,16 +102,12 @@ app.get('/forecastValues', function (request, response) {
 app.post('/pix', picture)
 
 async function picture(req,res) {
-  // let Lat = destination.Lat;
-  // let Lon = destination.Lon;
   let picapicall = await fetch(`${pixURL}${pixAPIKey}&q=${req.body}&image_type=photo&orientation=horixontal&category=places&per_page=3`);//cityname
   try {
       if (picapicall.status === 200) {
         let picdata = await picapicall.json();
-        console.log(picdata);
         res.send(picdata);
       } else {
-        console.log(picapicall);
         console.log('picture apicall not OK');
       }
   } catch (error) {
