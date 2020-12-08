@@ -11,7 +11,7 @@ function handleSubmit(event) {
   let daysNumber = daysToGo[0];
   let daysText = daysToGo[1];
 
-  if (Client.inputChecker(cityName,depDate)) {
+  if (Client.inputChecker(cityName,countryName,depDate)) {
   console.log('input check OK');
       if (daysNumber < 2) {
             document.getElementById('inputCheck').innerHTML = `Thank you. You are travelling to ${cityName} ${daysText}`;
@@ -29,7 +29,11 @@ function handleSubmit(event) {
           })
           .then((res) => res.json())
           .then(function(res) {
+              if (res.totalResultsCount == 0) {
+                document.getElementById('inputCheck').innerHTML = 'Sorry, the destination is not recognised by Geonames, please retry';
+              } else {
               Client.getWeather(res);
+              }
           })
           .then(function() {
               Client.getPicture(cityName,countryName);
@@ -40,7 +44,7 @@ function handleSubmit(event) {
 
   } else {
   console.log ('input check NOT OK');
-  document.getElementById('inputCheck').innerHTML = 'Please ensure you provide a Destination City and Departure Date, then retry';
+  document.getElementById('inputCheck').innerHTML = 'Please ensure you provide a Destination City, Country and Departure Date, then retry';
   // return false;
   }
 }

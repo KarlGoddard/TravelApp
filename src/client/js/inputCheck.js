@@ -1,5 +1,5 @@
-function inputChecker(cityName,depDate) {
-if (cityName == "" || depDate == "") {
+function inputChecker(cityName,countryName,depDate) {
+if (cityName == "" || countryName == "" || depDate == "" ) {
     return false;
     } else {
       return true;

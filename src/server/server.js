@@ -38,11 +38,12 @@ app.post('/geo', city)
 async function city(req, res) {
   let geoapicall = await fetch(`${geoURL}${req.body}&featureCode=PPL&FcodeName=populatedplace&username=${geoAPIKey}`);
   try {
+      let geodata = await geoapicall.json();
       if (geoapicall.status === 200) {
-        let geodata = await geoapicall.json();
-        res.send(geodata);
+      res.send(geodata);
+      console.log(geodata);
       } else {
-        console.log('geonames apicall not OK');
+      console.log('geonames apicall not OK');
       }
   } catch (error) {
     console.log('caught error', error)
