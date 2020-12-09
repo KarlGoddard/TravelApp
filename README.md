@@ -46,3 +46,9 @@ The user is presented with 3 input fields. All 3 fields are required.
 ### on submit
 - the weather section will populate.  If it is current weather, navigation is hidden.  If it is a forecast, navigation is enable to step through each date of the forecast.
 - the image field will populate with an image of the destination city or country and details of the image tags (in the event that the image is unrecognisable, it may assist the user in establishing a link with the location)
+
+## For REVIEWER
+Extend options included are:
+- country image is displayed if a destination city image cannot be found for obscure locations
+- forecast is extracted for multiple days
+- icons incorporated into the forecast/current weather
