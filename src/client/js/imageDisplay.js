@@ -1,3 +1,9 @@
+/**
+this function is passed the json file from the pixabay api call to retrieve a destination image
+a url to an image location is extracted from the first element in the array
+and its associated tags are also passed to the UI
+**/
+
 function displayImage(res) {
 
   let cityName = document.getElementById("inputCity").value;

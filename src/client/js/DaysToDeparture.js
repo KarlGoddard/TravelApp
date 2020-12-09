@@ -1,3 +1,9 @@
+/**
+todays date and input date are set to midnight
+they are compared to derive daysToDeparture
+number of days is returned, as well as a textual statement for display
+**/
+
 function daysToDeparture(dte) {
 
   console.log('Departure date is ' + dte);

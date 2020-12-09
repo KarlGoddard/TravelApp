@@ -1,3 +1,12 @@
+/**
+This function is triggered by clicking the submit button on the input area
+input values are captured to determine input is valid and days to Departure
+api calls are made for location lat/long (/geo), weather (.getWeather) and picture (.getPicture)
+based on the location and days to Departure
+the call to the weather api has a dependency on the latitude and longitude returned by
+the call to the geo api.  So the weather api is passed the returned parameters from the geo api.
+**/
+
 function handleSubmit(event) {
 
   event.preventDefault();

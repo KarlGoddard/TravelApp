@@ -1,3 +1,9 @@
+/**
+This function is first passed the city destination input by the user.
+If a call to the pixaby api does not return any matching values (total = 0)
+The function is called again with the country parameter instead.
+**/
+
 function getPicture(city,country) {
 
 

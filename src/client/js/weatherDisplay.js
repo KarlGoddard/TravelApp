@@ -1,3 +1,11 @@
+/**
+Based on how many days until departure, if 7 or less, the currentWeather function is called.
+This function posts a static display of the current weather with icons, but no navigation
+If more than 7 days til departure, the weatherForecast function is called.
+This function posts the first date forecast, then enables navigation to step through
+each dates forecast in turn
+**/
+
 function displayWeather(res) {
 
   let depDate = document.getElementById("depDate").value;

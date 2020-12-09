@@ -1,3 +1,11 @@
+/**
+this function extracts the lat and lon values returned by the call to the geonames apicall
+it passes those values to the weatherbit api.
+Based on how many days until departure (daysToDeparture)
+either the /weather or /forecast post call is made.
+the weather call returns a single element, the forecast call returns mulitple day forecasts in an array
+**/
+
 function getWeather(resFromGeoCall) {
 
   // check what text was put into the form field

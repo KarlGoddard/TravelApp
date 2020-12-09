@@ -1,3 +1,9 @@
+/**
+This function is triggered on clicking the date field.
+min is always set to today
+max is set to 30 days from today
+**/
+
 function minMaxDates() {
 
   let minDate = new Date();
