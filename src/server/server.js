@@ -45,7 +45,7 @@ async function city(req, res) {
       console.log('geonames apicall not OK');
       }
   } catch (error) {
-    console.log('caught error', error)
+    console.log('caught error ', error)
   }
 }
 
